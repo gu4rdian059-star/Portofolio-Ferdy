@@ -25,7 +25,7 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <a href="#beranda" className="font-display text-2xl font-black text-black">
-            BATOK<span className="text-ngreen">.</span>
+            FERDY<span className="text-ngreen">.</span>
           </a>
 
           {/* Desktop Links */}
