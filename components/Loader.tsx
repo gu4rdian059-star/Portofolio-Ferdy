@@ -7,8 +7,8 @@ const loadingWords = [
   { text: "MEMULAI", range: [0, 20] },
   { text: "MENDESAIN", range: [21, 45] },
   { text: "CODING", range: [46, 70] },
-  { text: "KOLABORASI", range: [71, 90] },
-  { text: "SELESAI!", range: [91, 100] },
+  { text: "HOHEY", range: [71, 90] },
+  { text: "WELCOME!", range: [91, 100] },
 ];
 
 export default function Loader({ onComplete }: { onComplete: () => void }) {
