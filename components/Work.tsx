@@ -88,9 +88,8 @@ export default function Work() {
                 damping: 14,
                 delay: i * 0.12
               }}
-              className={`relative ${
-                project.offset ? "sm:card-offset-down" : ""
-              }`}
+              className={`relative ${project.offset ? "sm:card-offset-down" : ""
+                }`}
             >
               <div className="border-[3px] border-black shadow-brutal brutal-hover cursor-default overflow-visible bg-white relative group">
                 {/* Large project number — overflowing */}
