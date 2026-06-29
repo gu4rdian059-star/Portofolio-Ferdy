@@ -8,9 +8,9 @@ const projects = [
     img: "/work/work1.png",
     color: "#ccff00",
     tag: "UI/UX Design",
-    name: "Desain UI-UX Apps Koperasi",
+    name: "Desain UI-UX Apps Merchant",
     description:
-      "Redesign UI aplikasi koperasi dengan fokus pada kemudahan pakai.",
+      "Redesign UI aplikasi merchant dengan fokus pada kemudahan pakai.",
     number: "01",
     offset: false,
   },
