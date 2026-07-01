@@ -34,7 +34,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <a href="#beranda" className="font-display text-xl font-black text-white">
-            FERDY<span className="text-ngreen">.</span>
+            F<span className="text-ngreen">.</span>
           </a>
 
           {/* Copyright */}
