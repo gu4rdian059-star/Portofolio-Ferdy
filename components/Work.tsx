@@ -43,7 +43,7 @@ const projects = [
     tag: "UI/UX Mobile Apps",
     name: "Desain Aplikasi To Do List Ibadah",
     description:
-      "UI Aplikasi To Do List Ibadah yang membantu meningkatkan kualitas ibadah.",
+      "UI Aplikasi To Do List Ibadah yang membantu pengingat ibadah.",
     number: "04",
     offset: true,
     link: "https://www.figma.com/design/vhgtxAQickqJjrM5WsdcX5/Untitled?node-id=0-1&t=JgsNlW3XtznyLZix-1",
