@@ -75,22 +75,18 @@ const workflowSteps = [
 const techStack = [
   {
     category: "Design Tools",
-    // icon: "🎨",
     items: ["Figma", "Photoshop", "Canva", "Ai"],
   },
   {
     category: "Web Technologies",
-    // icon: "💻",
     items: ["HTML", "Next.js", "Laravel", "PHP"],
   },
   {
     category: "Mobile Techs",
-    // icon: "🤖",
     items: ["Flutter", "React Native", "Dart", "Android"],
   },
   {
     category: "Others / Platforms",
-    // icon: "⚙️",
     items: ["Antigravity", "Git/GitHub", "Vercel", "Supabase"],
   },
 ];
