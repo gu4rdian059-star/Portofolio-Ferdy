@@ -13,6 +13,7 @@ const projects = [
       "Redesign UI aplikasi merchant dengan fokus pada kemudahan pakai.",
     number: "01",
     offset: false,
+    link: "https://www.figma.com/design/gYiujwC8535GgY1Ww24mJC/Apps-Koperasi?node-id=3202-1542&t=QlCARnVPsZvofwET-1",
   },
   {
     img: "/work/work2.png",
@@ -23,6 +24,7 @@ const projects = [
       "Website untuk kasir dengan tampilan neo-brutalis.",
     number: "02",
     offset: true,
+    link: "https://github.com/gu4rdian059-star/ProjectKasir.git",
   },
   {
     img: "/work/work3.png",
@@ -33,6 +35,7 @@ const projects = [
       "Website untuk persewaan alat outdoor.",
     number: "03",
     offset: false,
+    link: "#",
   },
   {
     img: "/work/work4.png",
@@ -43,13 +46,14 @@ const projects = [
       "UI Aplikasi To Do List Ibadah yang membantu meningkatkan kualitas ibadah.",
     number: "04",
     offset: true,
+    link: "https://www.figma.com/design/vhgtxAQickqJjrM5WsdcX5/Untitled?node-id=0-1&t=JgsNlW3XtznyLZix-1",
   },
 ];
 
 export default function Work() {
   return (
-    <motion.section 
-      id="karya" 
+    <motion.section
+      id="karya"
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
@@ -98,7 +102,12 @@ export default function Work() {
               className={`relative ${project.offset ? "sm:card-offset-down" : ""
                 }`}
             >
-              <div className="border-[3px] border-black shadow-brutal brutal-hover cursor-default overflow-visible bg-white relative group">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-[3px] border-black shadow-brutal brutal-hover cursor-pointer block overflow-visible bg-white relative group"
+              >
                 {/* Large project number — overflowing */}
                 <span
                   className="absolute -top-8 -right-3 lg:-top-10 lg:-right-4 font-display text-[80px] lg:text-[100px] font-black leading-none select-none z-20 pointer-events-none transition-transform duration-300 group-hover:scale-110"
@@ -140,14 +149,14 @@ export default function Work() {
                   <span className="inline-block bg-black text-white text-xs font-bold px-3 py-1 border border-black mb-3 uppercase tracking-wider">
                     {project.tag}
                   </span>
-                  <h3 className="font-display text-lg lg:text-xl font-black text-black mb-1.5">
+                  <h3 className="font-display text-lg lg:text-xl font-black text-black mb-1.5 group-hover:text-purple transition-colors">
                     {project.name}
                   </h3>
                   <p className="text-sm text-black/50 leading-relaxed">
                     {project.description}
                   </p>
                 </div>
-              </div>
+              </a>
             </motion.div>
           ))}
         </div>
