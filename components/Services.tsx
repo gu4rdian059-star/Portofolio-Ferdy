@@ -75,22 +75,22 @@ const workflowSteps = [
 const techStack = [
   {
     category: "Design Tools",
-    icon: "🎨",
+    // icon: "🎨",
     items: ["Figma", "Photoshop", "Canva", "Ai"],
   },
   {
     category: "Web Technologies",
-    icon: "💻",
+    // icon: "💻",
     items: ["HTML", "Next.js", "Laravel", "PHP"],
   },
   {
     category: "Mobile Techs",
-    icon: "🤖",
+    // icon: "🤖",
     items: ["Flutter", "React Native", "Dart", "Android"],
   },
   {
     category: "Others / Platforms",
-    icon: "⚙️",
+    // icon: "⚙️",
     items: ["Antigravity", "Git/GitHub", "Vercel", "Supabase"],
   },
 ];
@@ -282,7 +282,7 @@ export default function Services() {
               >
                 {/* Category Header */}
                 <div className="bg-black text-white px-5 py-3.5 border-b-[3px] border-black flex items-center gap-2">
-                  <span className="text-lg">{stack.icon}</span>
+                  {/* <span className="text-lg">{stack.icon}</span> */}
                   <span className="text-xs font-bold uppercase tracking-wider">
                     {stack.category}
                   </span>
