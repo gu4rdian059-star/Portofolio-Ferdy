@@ -124,10 +124,6 @@ export default function Work() {
                   className="aspect-[16/10] flex items-center justify-center border-b-[3px] border-black relative overflow-hidden"
                   style={{ backgroundColor: project.color }}
                 >
-                  {/* Arrow Link Button Overlay */}
-                  <div className="absolute top-4 right-4 bg-white border-[3px] border-black w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full shadow-[2px_2px_0px_#000] z-30 transition-transform duration-300 group-hover:scale-110 group-hover:bg-ngreen text-black text-xl lg:text-2xl font-black">
-                    ↗
-                  </div>
 
                   {project.img ? (
                     <Image
@@ -150,16 +146,23 @@ export default function Work() {
                 </div>
 
                 {/* Info */}
-                <div className="p-5 lg:p-6">
-                  <span className="inline-block bg-black text-white text-xs font-bold px-3 py-1 border border-black mb-3 uppercase tracking-wider">
-                    {project.tag}
-                  </span>
-                  <h3 className="font-display text-lg lg:text-xl font-black text-black mb-1.5 group-hover:text-purple transition-colors">
-                    {project.name}
-                  </h3>
-                  <p className="text-sm text-black/50 leading-relaxed">
-                    {project.description}
-                  </p>
+                <div className="p-5 lg:p-6 relative">
+                  <div className="pr-12 lg:pr-14">
+                    <span className="inline-block bg-black text-white text-xs font-bold px-3 py-1 border border-black mb-3 uppercase tracking-wider">
+                      {project.tag}
+                    </span>
+                    <h3 className="font-display text-lg lg:text-xl font-black text-black mb-1.5 group-hover:text-purple transition-colors">
+                      {project.name}
+                    </h3>
+                    <p className="text-sm text-black/50 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Arrow Link Button Bottom Right */}
+                  <div className="absolute bottom-5 right-5 lg:bottom-6 lg:right-6 bg-white border-[3px] border-black w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full shadow-[2px_2px_0px_#000] transition-transform duration-300 group-hover:scale-110 group-hover:bg-ngreen text-black text-xl lg:text-2xl font-black">
+                    ↗
+                  </div>
                 </div>
               </a>
             </motion.div>
