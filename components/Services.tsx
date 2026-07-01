@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const services = [
   {
-    icon: "🎨",
+    // icon: "🎨",
     name: "Desain Grafis",
     description:
       "Poster brutal, layout majalah, feed Instagram, dan aset visual liar yang memaksa mata audiens berhenti scrolling secara instan.",
@@ -14,7 +14,7 @@ const services = [
     tilt: "",
   },
   {
-    icon: "💻",
+    // icon: "💻",
     name: "Pengembangan Web",
     description:
       "Website Next.js berkecepatan tinggi dengan integrasi animasi canggih, SEO mantap, dan performa mulus yang siap meroketkan kredibilitas brand Anda.",
@@ -24,7 +24,7 @@ const services = [
     tilt: "",
   },
   {
-    icon: "📱",
+    // icon: "📱",
     name: "Desain UI/UX",
     description:
       "Wireframe & prototipe interaktif yang didesain secara presisi. Fokus pada kenyamanan jari pengguna dan alur konversi yang intuitif.",
@@ -34,7 +34,7 @@ const services = [
     tilt: "",
   },
   {
-    icon: "🤖",
+    // icon: "🤖",
     name: "Mobile Apps",
     description:
       "Aplikasi Android & iOS native/cross-platform dengan performa secepat kilat, transisi dinamis, dan integrasi API yang kokoh.",
@@ -42,7 +42,7 @@ const services = [
     text: "white",
     span: "",
     tilt: "",
-  },
+  }, 
 ];
 
 const workflowSteps = [
@@ -162,7 +162,7 @@ export default function Services() {
                     service.span ? "lg:text-5xl mb-0 shrink-0" : "mb-4"
                   }`}
                 >
-                  {service.icon}
+                  {/* {service.icon} */}
                 </span>
                 <div>
                   <h3 className="font-display text-xl lg:text-2xl font-black mb-2 mt-3 lg:mt-0">
