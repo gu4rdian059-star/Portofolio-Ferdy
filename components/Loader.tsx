@@ -32,7 +32,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
       } else {
         const currentProgress = Math.floor(start);
         setProgress(currentProgress);
-        
+
         // Update loading word based on current progress
         const word = loadingWords.find(
           (w) => currentProgress >= w.range[0] && currentProgress <= w.range[1]
@@ -56,7 +56,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
       {/* Top Bar */}
       <div className="flex justify-between items-center border-b-[2px] border-white/20 pb-4">
         <span className="font-display text-xl md:text-2xl font-black tracking-wider text-ngreen">
-          FERDY<span className="text-pink">.</span>
+          F<span className="text-pink">.</span>
         </span>
         <span className="text-xs font-semibold tracking-widest text-white/50 uppercase">
           PORTOFOLIO
