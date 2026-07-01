@@ -24,7 +24,7 @@ const projects = [
       "Website untuk kasir dengan tampilan neo-brutalis.",
     number: "02",
     offset: true,
-    link: "https://github.com/gu4rdian059-star/ProjectKasir.git",
+    link: "https://project-kasir-pi.vercel.app",
   },
   {
     img: "/work/work3.png",
