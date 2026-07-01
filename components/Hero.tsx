@@ -71,8 +71,12 @@ const itemVariants = {
 
 export default function Hero() {
   return (
-    <section
+    <motion.section
       id="beranda"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ type: "spring", stiffness: 80, damping: 20, velocity: 2 }}
       className="relative pt-24 lg:pt-28 pb-20 lg:pb-32 bg-cream overflow-hidden min-h-screen flex items-center"
     >
       {/* Dot grid background */}
@@ -223,6 +227,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

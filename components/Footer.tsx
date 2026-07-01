@@ -24,10 +24,10 @@ export default function Footer() {
   return (
     <motion.footer
       id="footer"
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ type: "spring", stiffness: 80, damping: 20, velocity: 2 }}
       className="bg-black py-8"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

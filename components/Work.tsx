@@ -48,7 +48,14 @@ const projects = [
 
 export default function Work() {
   return (
-    <section id="karya" className="py-20 lg:py-28 bg-cream relative overflow-hidden scroll-mt-20">
+    <motion.section 
+      id="karya" 
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ type: "spring", stiffness: 80, damping: 20, velocity: 2 }}
+      className="py-20 lg:py-28 bg-cream relative overflow-hidden scroll-mt-20"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header Row */}
         <motion.div
@@ -145,6 +152,6 @@ export default function Work() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

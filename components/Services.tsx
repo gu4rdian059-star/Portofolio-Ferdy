@@ -97,7 +97,14 @@ const techStack = [
 
 export default function Services() {
   return (
-    <section id="layanan" className="py-20 lg:py-28 bg-cream relative scroll-mt-20">
+    <motion.section 
+      id="layanan" 
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ type: "spring", stiffness: 80, damping: 20, velocity: 2 }}
+      className="py-20 lg:py-28 bg-cream relative scroll-mt-20"
+    >
       {/* Decorative star */}
       <motion.div
         animate={{ y: [0, -12, 0], rotate: [0, 360] }}
@@ -303,6 +310,6 @@ export default function Services() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
