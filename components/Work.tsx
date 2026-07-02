@@ -99,14 +99,14 @@ export default function Work() {
                 damping: 14,
                 delay: i * 0.12
               }}
-              className={`relative ${project.offset ? "sm:card-offset-down" : ""
+              className={`relative h-full ${project.offset ? "sm:card-offset-down" : ""
                 }`}
             >
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-[3px] border-black shadow-brutal brutal-hover cursor-pointer block overflow-visible bg-white relative group"
+                className="border-[3px] border-black shadow-brutal brutal-hover cursor-pointer flex flex-col h-full overflow-visible bg-white relative group"
               >
                 {/* Large project number — overflowing */}
                 <span
@@ -146,7 +146,7 @@ export default function Work() {
                 </div>
 
                 {/* Info */}
-                <div className="p-5 lg:p-6 relative">
+                <div className="p-5 lg:p-6 relative flex-1">
                   <div className="pr-12 lg:pr-14">
                     <span className="inline-block bg-black text-white text-xs font-bold px-3 py-1 border border-black mb-3 uppercase tracking-wider">
                       {project.tag}
