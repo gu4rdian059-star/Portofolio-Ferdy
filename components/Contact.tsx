@@ -13,7 +13,7 @@ export default function Contact() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
       transition={{ type: "spring", stiffness: 80, damping: 20, velocity: 2 }}
-      className="py-20 lg:py-28 bg-ngreen relative overflow-hidden scroll-mt-20 text-black keep-dark-text"
+      className="py-20 lg:py-28 bg-ngreen relative overflow-hidden scroll-mt-20 text-black keep-black"
     >
       {/* Decorative huge star background */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
@@ -30,12 +30,13 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left — Dramatic Headline (8 cols) */}
           <div className="lg:col-span-7">
-            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.0] lg:leading-[0.9] tracking-tight flex flex-col items-start">
+            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.0] lg:leading-[0.9] tracking-tight flex flex-col items-start text-black keep-black">
               <motion.span
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 100, damping: 13 }}
+                className="text-black keep-black"
               >
                 {t("contactTitle1")}
               </motion.span>
@@ -53,7 +54,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 100, damping: 13, delay: 0.3 }}
-                className="inline-block mt-2"
+                className="inline-block mt-2 text-black keep-black"
               >
                 {t("contactTitle2")}
               </motion.span>
@@ -63,7 +64,7 @@ export default function Contact() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.45 }}
-              className="text-lg text-black/70 mt-6 max-w-md font-medium"
+              className="text-lg text-black/80 mt-6 max-w-md font-medium keep-black"
             >
               {t("contactDesc")}
             </motion.p>

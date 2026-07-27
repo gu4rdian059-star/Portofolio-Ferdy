@@ -63,40 +63,31 @@ html.dark .bg-white:not(.keep-white) {
   border-color: #444444 !important;
 }
 
-html.dark .text-black:not(.keep-black):not(.keep-dark-text .text-black) {
+html.dark .text-black:not(.keep-black) {
   color: #ffffff !important;
 }
 
-html.dark .text-black\/60:not(.keep-dark-text .text-black\/60),
-html.dark .text-black\/70:not(.keep-dark-text .text-black\/70),
-html.dark .text-black\/80:not(.keep-dark-text .text-black\/80),
-html.dark .text-black\/90:not(.keep-dark-text .text-black\/90) {
+html.dark .text-black\/60:not(.keep-black),
+html.dark .text-black\/70:not(.keep-black),
+html.dark .text-black\/80:not(.keep-black) {
   color: rgba(255, 255, 255, 0.8) !important;
 }
 
-/* Preserve dark text on colored backgrounds (ngreen, pink, etc.) */
-html.dark .keep-dark-text.text-black,
-html.dark .keep-dark-text .text-black,
-html.dark section.keep-dark-text,
-html.dark div.keep-dark-text {
+/* Ensure Contact section (#kontak) text remains high-contrast black on neon green background in Dark Mode */
+html.dark #kontak {
   color: #0a0a0a !important;
 }
 
-html.dark .keep-dark-text .text-black\/70 {
-  color: rgba(0, 0, 0, 0.7) !important;
-}
-
-html.dark .keep-dark-text .bg-cream {
-  background-color: #f5f2eb !important;
+html.dark #kontak h2 span:not(.bg-black) {
   color: #0a0a0a !important;
 }
 
-html.dark .keep-dark-text .border-black {
+html.dark #kontak p {
+  color: rgba(10, 10, 10, 0.85) !important;
+}
+
+html.dark #kontak .border-black {
   border-color: #0a0a0a !important;
-}
-
-html.dark .keep-dark-text * {
-  color: inherit;
 }
 
 html.dark .border-black {
