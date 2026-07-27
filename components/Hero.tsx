@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { useApp } from "@/context/AppContext";
 
 /* ===== COUNT-UP COMPONENT ===== */
 function CountUp({
@@ -70,6 +72,9 @@ const itemVariants = {
 };
 
 export default function Hero() {
+  const { lang, t } = useApp();
+  const [isPhotoColored, setIsPhotoColored] = useState(false);
+
   return (
     <motion.section
       id="beranda"
@@ -109,19 +114,23 @@ export default function Hero() {
             animate="visible"
             className="order-2 lg:order-1 lg:col-span-7"
           >
-            {/* Availability Badge — tilted sticker */}
-            <motion.div variants={itemVariants} className="mb-8">
+            {/* Availability Badge & School Badge Row — tilted stickers */}
+            <motion.div variants={itemVariants} className="mb-8 flex flex-wrap gap-3 items-center">
               <span className="inline-block bg-pink text-white text-xs font-bold px-4 py-2.5 border-[3px] border-black shadow-brutal uppercase tracking-wider sticker-tilt-left">
-                ✦ Tersedia untuk proyek
+                {t("heroBadge")}
+              </span>
+              <span className="inline-flex items-center gap-2 bg-ngreen text-black text-xs font-black px-4 py-2 border-[3px] border-black shadow-brutal uppercase tracking-wider sticker-tilt-right">
+                <Image src="/school/smkn1pasuruan.png" alt="SMKN 1 Pasuruan" width={18} height={18} className="object-contain" />
+                SMKN 1 PASURAN — RPL
               </span>
             </motion.div>
 
             {/* Headline — super big, tight */}
             <motion.h1
               variants={itemVariants}
-              className="font-display text-4xl sm:text-7xl lg:text-8xl xl:text-[105px] font-black tracking-tighter leading-[1.1] sm:leading-[1.0] lg:leading-[0.85] mb-8"
+              className="font-display text-4xl sm:text-7xl lg:text-8xl xl:text-[105px] font-black tracking-tighter leading-[1.1] sm:leading-[1.0] lg:leading-[0.85] mb-8 text-black"
             >
-              halo, saya{" "}
+              {lang === "id" ? "halo, saya" : "hello, I'm"}{" "}
               <br className="hidden sm:inline" />
               <span className="relative inline-block mr-2 my-1">
                 <span className="relative z-10 px-2">Ferdy</span>
@@ -132,23 +141,35 @@ export default function Hero() {
                 <span className="absolute inset-0 bg-ngreen -skew-x-3 z-0" />
               </span>
               <br className="hidden sm:inline" />
-              <span className="block sm:inline mt-1 sm:mt-0">
-                desainer+dev
-              </span>{" "}
-              <br className="hidden sm:inline" />
-              yang bikin{" "}
-              <br className="hidden sm:inline" />
-              brand <span className="text-purple italic">nendang.</span>
+              {lang === "id" ? (
+                <>
+                  <span className="block sm:inline mt-1 sm:mt-0">
+                    desainer+dev
+                  </span>{" "}
+                  <br className="hidden sm:inline" />
+                  yang bikin{" "}
+                  <br className="hidden sm:inline" />
+                  brand <span className="text-purple italic">nendang.</span>
+                </>
+              ) : (
+                <>
+                  <span className="block sm:inline mt-1 sm:mt-0">
+                    designer+dev
+                  </span>{" "}
+                  <br className="hidden sm:inline" />
+                  making brands{" "}
+                  <br className="hidden sm:inline" />
+                  <span className="text-purple italic">punchy.</span>
+                </>
+              )}
             </motion.h1>
 
             {/* Subtext */}
             <motion.p
               variants={itemVariants}
-              className="text-lg lg:text-xl text-black/60 mb-10 max-w-xl leading-relaxed"
+              className="text-lg lg:text-xl text-black/70 mb-10 max-w-xl leading-relaxed"
             >
-              Logo, poster, grafis & branding yang bikin brand kamu{" "}
-              <span className="font-bold text-purple">unforgettable</span>.
-              Siap bikin sesuatu yang luar biasa?
+              {t("heroSubtext")}
             </motion.p>
 
             {/* CTA Buttons — sticker style */}
@@ -156,18 +177,18 @@ export default function Hero() {
               variants={itemVariants}
               className="flex flex-wrap gap-4 mb-12"
             >
-              <a
-                href="#karya"
+              <Link
+                href="/karya"
                 className="inline-block bg-black text-ngreen font-bold text-sm px-8 py-4 border-[3px] border-black shadow-brutal brutal-hover uppercase tracking-wider"
               >
-                Lihat Karya →
-              </a>
-              <a
-                href="#kontak"
+                {t("heroCTAWork")}
+              </Link>
+              <Link
+                href="/kontak"
                 className="inline-block bg-cream text-black font-bold text-sm px-8 py-4 border-[3px] border-black shadow-brutal brutal-hover uppercase tracking-wider sticker-tilt-slight-right hover:!rotate-0"
               >
-                Hubungi Saya
-              </a>
+                {t("heroCTAContact")}
+              </Link>
             </motion.div>
 
             {/* Stats Row — tilted badges */}
@@ -176,21 +197,21 @@ export default function Hero() {
               className="border-t-[3px] border-black pt-8 flex flex-wrap gap-6 lg:gap-10"
             >
               <div className="flex flex-col sticker-tilt-slight-left">
-                <CountUp target={120} suffix="+" />
-                <span className="text-[10px] font-semibold text-black/50 uppercase tracking-wider mt-1">
-                  Proyek Selesai
+                <CountUp target={15} suffix="+" />
+                <span className="text-[10px] font-semibold text-black/60 uppercase tracking-wider mt-1">
+                  {t("heroStatProjects")}
                 </span>
               </div>
               <div className="flex flex-col sticker-tilt-slight-right">
-                <CountUp target={50} suffix="+" />
-                <span className="text-[10px] font-semibold text-black/50 uppercase tracking-wider mt-1">
-                  Klien Puas
+                <CountUp target={15} suffix="+" />
+                <span className="text-[10px] font-semibold text-black/60 uppercase tracking-wider mt-1">
+                  {t("heroStatClients")}
                 </span>
               </div>
               <div className="flex flex-col sticker-tilt-slight-left">
-                <CountUp target={2} suffix="+" />
-                <span className="text-[10px] font-semibold text-black/50 uppercase tracking-wider mt-1">
-                  Tahun Pengalaman
+                <CountUp target={1} suffix="+" />
+                <span className="text-[10px] font-semibold text-black/60 uppercase tracking-wider mt-1">
+                  {t("heroStatExp")}
                 </span>
               </div>
             </motion.div>
@@ -198,29 +219,38 @@ export default function Hero() {
 
           {/* RIGHT COLUMN — 5 cols (narrower, asymmetric) */}
           <motion.div
-            initial={{ opacity: 0, rotate: 4, scale: 0.9 }}
-            animate={{ opacity: 1, rotate: 3, scale: 1 }}
-            transition={{ duration: 0.8, delay: 1.3, ease: "easeOut" as const }}
-            className="order-1 lg:order-2 lg:col-span-5 relative"
+            initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
+            animate={{ opacity: 1, rotate: 0, scale: 1 }}
+            whileInView={{ opacity: 1, rotate: [0, 2], scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" as const }}
+            className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center max-w-sm lg:max-w-none mx-auto w-full px-2 sm:px-0"
           >
-            {/* Photo card — tilted */}
-            <div className="bg-purple border-[4px] border-black shadow-brutal-lg p-5 lg:p-6 relative lg:translate-y-6">
-              <div className="relative aspect-[3/4] w-full border-[4px] border-black overflow-hidden">
+            {/* Photo card — responsive tilted, tap to toggle full color on mobile */}
+            <div
+              onClick={() => setIsPhotoColored(!isPhotoColored)}
+              className="bg-purple border-[4px] border-black shadow-brutal sm:shadow-brutal-lg p-4 sm:p-5 lg:p-6 relative lg:translate-y-6 group cursor-pointer w-full max-w-[290px] sm:max-w-sm lg:max-w-none lg:rotate-3 select-none active:scale-95 transition-transform"
+            >
+              <div className="relative aspect-[3/4] w-full border-[4px] border-black overflow-hidden bg-black">
                 <Image
                   src="/me.png"
                   alt="Foto portrait"
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className={`object-cover transition-all duration-500 ease-out group-hover:scale-105 ${
+                    isPhotoColored
+                      ? "grayscale-0 contrast-100 scale-105"
+                      : "grayscale contrast-125 group-hover:grayscale-0 group-hover:contrast-100"
+                  }`}
+                  sizes="(max-width: 768px) 80vw, 40vw"
                   preload
                 />
               </div>
 
-              {/* Floating Badge — bottom right, counter-tilted */}
-              <div className="absolute -bottom-5 -right-5 lg:-bottom-6 lg:-right-6 bg-ngreen border-[3px] border-black shadow-brutal px-5 py-3 sticker-tilt-left">
-                <span className="flex items-center gap-2 text-sm font-bold text-black whitespace-nowrap">
-                  <span className="inline-block w-2.5 h-2.5 bg-black animate-pulse-dot" />
-                  Buka untuk kerja
+              {/* Floating Badge — bottom right, responsive alignment */}
+              <div className="absolute -bottom-4 right-1 sm:-bottom-5 sm:-right-4 bg-ngreen border-[3px] border-black shadow-brutal px-3.5 sm:px-5 py-2 sm:py-3 sticker-tilt-left z-20">
+                <span className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold text-black whitespace-nowrap">
+                  <span className="inline-block w-2 sm:w-2.5 h-2 sm:h-2.5 bg-black animate-pulse-dot" />
+                  {t("heroOpenForWork")}
                 </span>
               </div>
             </div>

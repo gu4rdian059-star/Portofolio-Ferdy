@@ -1,35 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useApp } from "@/context/AppContext";
 
 const testimonials = [
   {
-    quote:
+    quote_id:
       "Hasilnya sangat melampaui ekspektasi. Brand kami sekarang punya visual yang kuat dan dikenal banyak orang. Sangat direkomendasikan!",
+    quote_en:
+      "The result far exceeded our expectations. Our brand now has a strong visual identity recognized by everyone. Highly recommended!",
     author: "Ahmad Fauzi",
-    role: "CEO, Kopi Lokal",
+    role_id: "CEO, Kopi Lokal",
+    role_en: "CEO, Local Coffee Co.",
     avatar: "A",
     tilt: -2.5,
   },
   {
-    quote:
+    quote_id:
       "Proses kerja sangat profesional, responsif, dan hasilnya bener-bener sesuai visi kami. Website kami sekarang jauh lebih menarik.",
+    quote_en:
+      "Extremely professional workflow, responsive communication, and the output aligns perfectly with our vision. Our site is way more engaging now.",
     author: "Sari Dewi",
-    role: "Pendiri, Studio Kreatif",
+    role_id: "Pendiri, Studio Kreatif",
+    role_en: "Founder, Creative Studio",
     avatar: "S",
     tilt: 1.5,
   },
   {
-    quote:
+    quote_id:
       "Poster yang dibuat beneran bikin event kami viral di sosmed. Desainnya unik dan berkarakter, beda dari yang lain.",
+    quote_en:
+      "The posters created made our event go viral on social media. Unique design with strong character, completely standout.",
     author: "Rizky Pratama",
-    role: "Event Organizer",
+    role_id: "Event Organizer",
+    role_en: "Event Organizer",
     avatar: "R",
     tilt: -1.5,
   },
 ];
 
 export default function Testimonials() {
+  const { lang } = useApp();
+
   return (
     <section id="klien" className="py-20 lg:py-28 bg-black relative overflow-hidden">
       {/* Decorative star */}
@@ -47,10 +59,10 @@ export default function Testimonials() {
           className="mb-14"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ngreen mb-3">
-            kata klien.
+            {lang === "id" ? "kata klien." : "client reviews."}
           </p>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-white">
-            Apa Kata Mereka.
+            {lang === "id" ? "Apa Kata Mereka." : "What People Say."}
           </h2>
         </motion.div>
 
@@ -82,8 +94,8 @@ export default function Testimonials() {
                 <span className="font-display text-6xl text-ngreen leading-none block mb-4">
                   &ldquo;
                 </span>
-                <p className="text-white/75 text-sm lg:text-base leading-relaxed mb-8">
-                  &ldquo;{t.quote}&rdquo;
+                <p className="text-white/85 text-sm lg:text-base leading-relaxed mb-8 font-medium">
+                  &ldquo;{lang === "id" ? t.quote_id : t.quote_en}&rdquo;
                 </p>
               </div>
 
@@ -94,7 +106,7 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <p className="text-white font-bold text-sm">{t.author}</p>
-                  <p className="text-white/35 text-xs">{t.role}</p>
+                  <p className="text-white/50 text-xs font-medium">{lang === "id" ? t.role_id : t.role_en}</p>
                 </div>
               </div>
             </motion.div>

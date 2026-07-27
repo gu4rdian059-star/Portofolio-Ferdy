@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-cream: #f5f2eb;
   --color-ngreen: #ccff00;
@@ -28,6 +30,56 @@ body {
   color: #0a0a0a;
   font-family: var(--font-sans);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== DARK THEME OVERRIDES (Strictly html.dark) ===== */
+html.dark body {
+  background-color: #0d0d0d !important;
+  color: #ffffff !important;
+}
+
+html.dark .bg-cream {
+  background-color: #0d0d0d !important;
+  color: #ffffff !important;
+}
+
+html.dark #navbar {
+  background-color: #141414 !important;
+  border-color: #ccff00 !important;
+}
+
+html.dark #navbar a {
+  color: #ffffff !important;
+}
+
+html.dark #navbar a:hover {
+  color: #ccff00 !important;
+}
+
+html.dark .bg-white:not(.keep-white) {
+  background-color: #181818 !important;
+  color: #ffffff !important;
+  border-color: #444444 !important;
+}
+
+html.dark .text-black:not(.keep-black) {
+  color: #ffffff !important;
+}
+
+html.dark .text-black\/60,
+html.dark .text-black\/70,
+html.dark .text-black\/80 {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+html.dark .border-black {
+  border-color: #ffffff !important;
+}
+
+html.dark .hero-dot-grid {
+  background-image: radial-gradient(circle, #ffffff 1px, transparent 1px) !important;
+  opacity: 0.12 !important;
 }
 
 /* ===== HERO DOT GRID PATTERN ===== */

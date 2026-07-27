@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { useApp } from "@/context/AppContext";
 
 const socialLinks = [
   {
@@ -42,6 +44,8 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { t } = useApp();
+
   return (
     <motion.footer
       id="footer"
@@ -54,13 +58,13 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
-          <a href="#beranda" className="font-display text-xl font-black text-white">
-            F<span className="text-ngreen">.</span>
-          </a>
+          <Link href="/" className="font-display text-xl font-black text-white tracking-tight">
+            FERDY<span className="text-ngreen">.</span>
+          </Link>
 
           {/* Copyright */}
-          <p className="text-xs text-white/30 text-center">
-            © 2026 — Hak cipta dilindungi.
+          <p className="text-xs text-white/40 text-center font-medium">
+            {t("footerRights")}
           </p>
 
           {/* Social Icons */}

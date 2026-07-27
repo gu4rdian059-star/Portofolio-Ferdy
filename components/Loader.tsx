@@ -55,8 +55,8 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
     >
       {/* Top Bar */}
       <div className="flex justify-between items-center border-b-[2px] border-white/20 pb-4">
-        <span className="font-display text-xl md:text-2xl font-black tracking-wider text-ngreen">
-          F<span className="text-pink">.</span>
+        <span className="font-display text-xl md:text-2xl font-black tracking-tight text-white">
+          FERDY<span className="text-ngreen">.</span>
         </span>
         <span className="text-xs font-semibold tracking-widest text-white/50 uppercase">
           PORTOFOLIO

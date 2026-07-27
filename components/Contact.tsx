@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useApp } from "@/context/AppContext";
 
 export default function Contact() {
+  const { t } = useApp();
+
   return (
     <motion.section 
       id="kontak" 
@@ -10,7 +13,7 @@ export default function Contact() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
       transition={{ type: "spring", stiffness: 80, damping: 20, velocity: 2 }}
-      className="py-20 lg:py-28 bg-ngreen relative overflow-hidden scroll-mt-20"
+      className="py-20 lg:py-28 bg-ngreen relative overflow-hidden scroll-mt-20 text-black"
     >
       {/* Decorative huge star background */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
@@ -34,7 +37,7 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 100, damping: 13 }}
               >
-                Punya ide
+                {t("contactTitle1")}
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, scale: 0.4, rotate: -15 }}
@@ -43,7 +46,7 @@ export default function Contact() {
                 transition={{ type: "spring", stiffness: 120, damping: 10, delay: 0.15 }}
                 className="inline-block bg-black text-ngreen px-4 py-1 mt-2 sticker-tilt-slight-left"
               >
-                berani?
+                {t("contactSticker")}
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
@@ -52,7 +55,7 @@ export default function Contact() {
                 transition={{ type: "spring", stiffness: 100, damping: 13, delay: 0.3 }}
                 className="inline-block mt-2"
               >
-                Ayo wujudkan.
+                {t("contactTitle2")}
               </motion.span>
             </h2>
             <motion.p
@@ -60,9 +63,9 @@ export default function Contact() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.45 }}
-              className="text-lg text-black/60 mt-6 max-w-md"
+              className="text-lg text-black/70 mt-6 max-w-md font-medium"
             >
-              Siap bikin sesuatu yang beda dari yang lain? Langsung hubungi saya sekarang.
+              {t("contactDesc")}
             </motion.p>
           </div>
 
@@ -79,7 +82,7 @@ export default function Contact() {
               className="flex items-center justify-center gap-3 bg-black text-ngreen font-bold text-base lg:text-lg px-8 py-5 border-[3px] border-black shadow-brutal brutal-hover uppercase tracking-wider sticker-tilt-slight-right hover:!rotate-0"
             >
               <span className="text-xl">✉</span>
-             EMAIL SAYA
+              {t("emailMe")}
             </a>
             <a
               href="https://wa.me/6285236132763"
@@ -88,7 +91,7 @@ export default function Contact() {
               className="flex items-center justify-center gap-3 bg-cream text-black font-bold text-base lg:text-lg px-8 py-5 border-[3px] border-black shadow-brutal brutal-hover uppercase tracking-wider sticker-tilt-slight-left hover:!rotate-0"
             >
               <span className="text-xl">💬</span>
-              WhatsApp Saya
+              {t("waMe")}
             </a>
           </motion.div>
         </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { AppProvider } from "@/context/AppContext";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -32,7 +33,9 @@ export default function RootLayout({
       lang="id"
       className={`${spaceGrotesk.variable} ${playfairDisplay.variable} antialiased`}
     >
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen">
+        <AppProvider>{children}</AppProvider>
+      </body>
     </html>
   );
 }

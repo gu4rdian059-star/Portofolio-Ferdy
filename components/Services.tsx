@@ -1,73 +1,90 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useApp } from "@/context/AppContext";
 
 const services = [
   {
-    // icon: "🎨",
-    name: "Desain Grafis",
-    description:
+    name_id: "Desain Grafis",
+    name_en: "Graphic Design",
+    desc_id:
       "Poster brutal, layout majalah, feed Instagram, dan aset visual liar yang memaksa mata audiens berhenti scrolling secara instan.",
+    desc_en:
+      "Bold posters, magazine layouts, Instagram feeds, and striking visual assets that instantly stop audiences from scrolling.",
     bg: "#ff2d9b",
     text: "white",
     span: "",
     tilt: "",
   },
   {
-    // icon: "💻",
-    name: "Pengembangan Web",
-    description:
+    name_id: "Pengembangan Web",
+    name_en: "Web Development",
+    desc_id:
       "Website Next.js berkecepatan tinggi dengan integrasi animasi canggih, SEO mantap, dan performa mulus yang siap meroketkan kredibilitas brand Anda.",
+    desc_en:
+      "High-speed Next.js websites built with smooth animations, solid SEO, and flawless performance to skyrocket your brand's credibility.",
     bg: "#7b2fbe",
     text: "white",
     span: "",
     tilt: "",
   },
   {
-    // icon: "📱",
-    name: "Desain UI/UX",
-    description:
+    name_id: "Desain UI/UX",
+    name_en: "UI/UX Design",
+    desc_id:
       "Wireframe & prototipe interaktif yang didesain secara presisi. Fokus pada kenyamanan jari pengguna dan alur konversi yang intuitif.",
+    desc_en:
+      "Precision-crafted interactive wireframes & prototypes focused on user accessibility and intuitive conversion flows.",
     bg: "#ff6b00",
     text: "white",
     span: "",
     tilt: "",
   },
   {
-    // icon: "🤖",
-    name: "Mobile Apps",
-    description:
+    name_id: "Mobile Apps",
+    name_en: "Mobile Apps",
+    desc_id:
       "Aplikasi Android & iOS native/cross-platform dengan performa secepat kilat, transisi dinamis, dan integrasi API yang kokoh.",
+    desc_en:
+      "Native & cross-platform Android & iOS applications featuring lightning-fast speed, dynamic transitions, and robust API integration.",
     bg: "#1a1aff",
     text: "white",
     span: "",
     tilt: "",
-  }, 
+  },
 ];
 
 const workflowSteps = [
   {
     num: "01",
-    title: "Brief & Brainstorming",
-    description: "Berdiskusi santai untuk menyelaraskan visi brand Anda, memetakan kebutuhan audiens target, dan merumuskan strategi visual yang tepat sasaran.",
+    title_id: "Brief & Brainstorming",
+    title_en: "Brief & Brainstorming",
+    desc_id: "Berdiskusi santai untuk menyelaraskan visi brand Anda, memetakan kebutuhan audiens target, dan merumuskan strategi visual yang tepat sasaran.",
+    desc_en: "Casual discussions to align your brand vision, map out target audience needs, and craft a pinpoint visual strategy.",
     color: "#ff2d9b",
   },
   {
     num: "02",
-    title: "Sketsa & Desain Konsep",
-    description: "Membuat beberapa alternatif sketsa visual awal, layout kasar, atau wireframe aplikasi yang interaktif untuk disepakati bersama.",
+    title_id: "Sketsa & Desain Konsep",
+    title_en: "Sketch & Concept Design",
+    desc_id: "Membuat beberapa alternatif sketsa visual awal, layout kasar, atau wireframe aplikasi yang interaktif untuk disepakati bersama.",
+    desc_en: "Creating initial visual sketches, wireframes, and interactive concept layouts for joint review and approval.",
     color: "#ff6b00",
   },
   {
     num: "03",
-    title: "Pengembangan & Finishing",
-    description: "Memulai proses coding dengan Next.js yang bersih, performa mulus, atau merampungkan aset desain grafis beresolusi tinggi dengan presisi piksel.",
+    title_id: "Pengembangan & Finishing",
+    title_en: "Development & Finishing",
+    desc_id: "Memulai proses coding dengan Next.js yang bersih, performa mulus, atau merampungkan aset desain grafis beresolusi tinggi dengan presisi piksel.",
+    desc_en: "Executing clean Next.js code architecture or polishing high-resolution graphic assets with pixel-perfect precision.",
     color: "#7b2fbe",
   },
   {
     num: "04",
-    title: "Optimasi & Serah Terima",
-    description: "Menguji performa, optimasi SEO untuk pencarian Google, mempublikasikan situs Anda, serta menyerahkan seluruh berkas master secara lengkap.",
+    title_id: "Optimasi & Serah Terima",
+    title_en: "Optimization & Handover",
+    desc_id: "Menguji performa, optimasi SEO untuk pencarian Google, mempublikasikan situs Anda, serta menyerahkan seluruh berkas master secara lengkap.",
+    desc_en: "Running performance tests, Google SEO optimizations, deploying your site live, and delivering all complete master assets.",
     color: "#ccff00",
   },
 ];
@@ -92,6 +109,8 @@ const techStack = [
 ];
 
 export default function Services() {
+  const { lang, t } = useApp();
+
   return (
     <motion.section 
       id="layanan" 
@@ -123,14 +142,14 @@ export default function Services() {
           className="mb-14"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/40 mb-3">
-            apa yang saya buat.
+            {t("servicesTag")}
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black">
-            Layanan Saya.
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-black">
+            {t("servicesTitle")}
           </h2>
         </motion.div>
 
-        {/* Bento Grid — uneven card sizes */}
+        {/* Bento Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((service, i) => (
             <motion.div
@@ -153,29 +172,22 @@ export default function Services() {
                 }`}
                 style={{ color: service.text }}
               >
-                <span
-                  className={`text-4xl block ${
-                    service.span ? "lg:text-5xl mb-0 shrink-0" : "mb-4"
-                  }`}
-                >
-                  {/* {service.icon} */}
-                </span>
                 <div>
                   <h3 className="font-display text-xl lg:text-2xl font-black mb-2 mt-3 lg:mt-0">
-                    {service.name}
+                    {lang === "id" ? service.name_id : service.name_en}
                   </h3>
                   <p
-                    className="text-sm leading-relaxed font-medium"
+                    className="text-base sm:text-lg leading-relaxed font-medium"
                     style={{
                       color:
                         service.text === "white"
-                          ? "rgba(255,255,255,0.85)"
+                          ? "rgba(255,255,255,0.95)"
                           : service.text === "#ccff00"
-                          ? "rgba(204,255,0,0.85)"
-                          : "rgba(0,0,0,0.7)",
+                          ? "rgba(204,255,0,0.95)"
+                          : "rgba(0,0,0,0.9)",
                     }}
                   >
-                    {service.description}
+                    {lang === "id" ? service.desc_id : service.desc_en}
                   </p>
                 </div>
               </div>
@@ -196,14 +208,14 @@ export default function Services() {
             className="mb-14"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/40 mb-3">
-              proses kreatif.
+              {lang === "id" ? "proses kreatif." : "creative process."}
             </p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black">
-              Alur Kerja Saya.
+              {lang === "id" ? "Alur Kerja Saya." : "My Workflow."}
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {workflowSteps.map((step, i) => (
               <motion.div
                 key={i}
@@ -217,7 +229,7 @@ export default function Services() {
                   delay: i * 0.1,
                 }}
                 whileHover={{ y: -6, transition: { duration: 0.15 } }}
-                className="bg-white border-[3px] border-black shadow-brutal p-6 relative group overflow-visible"
+                className="bg-white border-[3px] border-black shadow-brutal p-6 relative group overflow-visible flex flex-col h-full justify-between"
               >
                 {/* Step Number */}
                 <span
@@ -230,78 +242,51 @@ export default function Services() {
                   {step.num}
                 </span>
 
-                <h3 className="font-display text-lg font-black text-black mb-3 mt-4 border-b border-black/10 pb-2">
-                  {step.title}
-                </h3>
-                <p className="text-xs text-black/60 leading-relaxed">
-                  {step.description}
-                </p>
+                <div className="mt-2 flex flex-col flex-1">
+                  {/* Fixed height title header container for 100% pixel-perfect horizontal alignment */}
+                  <div className="min-h-[58px] flex items-end mb-3 border-b border-black/10 pb-2.5">
+                    <h3 className="font-display text-base sm:text-lg font-black text-black leading-snug">
+                      {lang === "id" ? step.title_id : step.title_en}
+                    </h3>
+                  </div>
+
+                  <p className="text-sm text-black/90 font-medium leading-relaxed flex-1">
+                    {lang === "id" ? step.desc_id : step.desc_en}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Brutalist Divider */}
-        <div className="border-t-[3px] border-black my-16 lg:my-24" />
-
-        {/* Tech Stack Section */}
-        <div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 100, damping: 15 }}
-            className="mb-14"
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/40 mb-3">
-              teknologi.
+        {/* Tech Stack Grid */}
+        <div className="bg-white dark:bg-[#181818] text-black dark:text-white p-8 sm:p-12 border-[3px] border-black shadow-brutal relative overflow-hidden">
+          <div className="mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-purple dark:text-ngreen mb-3">
+              {lang === "id" ? "teknologi & perkakas." : "tech & tools."}
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black">
-              Senjata Tempur.
+            <h2 className="font-display text-3xl sm:text-4xl font-black text-black dark:text-white">
+              {lang === "id" ? "Tech Stack Pilihan." : "Curated Tech Stack."}
             </h2>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {techStack.map((stack, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  type: "spring",
-                  stiffness: 90,
-                  damping: 14,
-                  delay: i * 0.1,
-                }}
-                className="bg-white border-[3px] border-black shadow-brutal flex flex-col overflow-hidden"
-              >
-                {/* Category Header */}
-                <div className="bg-black text-white px-5 py-3.5 border-b-[3px] border-black flex items-center gap-2">
-                  {/* <span className="text-lg">{stack.icon}</span> */}
-                  <span className="text-xs font-bold uppercase tracking-wider">
-                    {stack.category}
-                  </span>
-                </div>
-                {/* Category Tags */}
-                <div className="p-5 flex flex-wrap gap-2.5 bg-[#fbf9f4]">
-                  {stack.items.map((item) => (
-                    <motion.span
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {techStack.map((group, i) => (
+              <div key={i} className="border-l-2 border-purple dark:border-ngreen/40 pl-4">
+                <h4 className="font-display text-sm font-bold uppercase tracking-wider text-purple dark:text-ngreen mb-3">
+                  {group.category}
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
                       key={item}
-                      whileHover={{
-                        scale: 1.05,
-                        backgroundColor: "#ccff00",
-                        color: "#0a0a0a",
-                        rotate: Math.random() > 0.5 ? 1.5 : -1.5,
-                      }}
-                      transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                      className="text-xs font-bold bg-white text-black px-3 py-1.5 border-[2px] border-black cursor-default select-none shadow-[2px_2px_0px_#000] hover:shadow-[3px_3px_0px_#000]"
+                      className="bg-cream dark:bg-[#222] text-black dark:text-white text-xs font-bold px-3 py-1.5 border border-black dark:border-[#444]"
                     >
                       {item}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

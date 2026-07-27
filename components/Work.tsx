@@ -2,15 +2,18 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { useApp } from "@/context/AppContext";
 
 const projects = [
   {
     img: "/work/work1.png",
     color: "#ccff00",
     tag: "UI/UX Design",
-    name: "Desain UI-UX Apps Merchant",
-    description:
-      "Redesign UI aplikasi merchant dengan fokus pada kemudahan pakai.",
+    name_id: "Desain UI-UX Apps Merchant",
+    name_en: "Merchant App UI/UX Design",
+    desc_id: "Redesign UI aplikasi merchant dengan fokus pada kemudahan pakai dan pengalaman pengguna.",
+    desc_en: "Merchant app UI redesign focused on effortless usability and intuitive user experience.",
     number: "01",
     offset: false,
     link: "https://www.figma.com/design/gYiujwC8535GgY1Ww24mJC/Apps-Koperasi?node-id=3202-1542&t=QlCARnVPsZvofwET-1",
@@ -19,9 +22,10 @@ const projects = [
     img: "/work/work2.png",
     color: "#ff2d9b",
     tag: "Website Design",
-    name: "Website Kasir",
-    description:
-      "Website untuk kasir dengan tampilan neo-brutalis.",
+    name_id: "Website Kasir Neo-Brutalist",
+    name_en: "Neo-Brutalist POS Website",
+    desc_id: "Website untuk kasir dengan tampilan gaya visual neo-brutalis berkarakter kuat.",
+    desc_en: "High-speed point of sale website built with bold neo-brutalist aesthetic.",
     number: "02",
     offset: true,
     link: "https://project-kasir-pi.vercel.app",
@@ -30,9 +34,10 @@ const projects = [
     img: "/work/work3.png",
     color: "#7b2fbe",
     tag: "Website Design",
-    name: "Website Sewa Outdoor",
-    description:
-      "Website untuk persewaan alat outdoor.",
+    name_id: "Website Sewa Outdoor",
+    name_en: "Outdoor Rental Platform",
+    desc_id: "Website platform pemesanan dan persewaan alat outdoor dan camping.",
+    desc_en: "Web platform for outdoor & camping gear rental and booking management.",
     number: "03",
     offset: false,
     link: "#",
@@ -41,9 +46,10 @@ const projects = [
     img: "/work/work4.png",
     color: "#ff6b00",
     tag: "UI/UX Mobile Apps",
-    name: "Desain Aplikasi To Do List Ibadah",
-    description:
-      "UI Aplikasi To Do List Ibadah yang membantu pengingat ibadah.",
+    name_id: "Desain Aplikasi To Do List Ibadah",
+    name_en: "Worship Tracker Mobile UI",
+    desc_id: "UI Aplikasi To Do List Ibadah yang membantu pengingat & pelacak ibadah harian.",
+    desc_en: "Mobile app UI design for daily worship tracking & smart reminders.",
     number: "04",
     offset: true,
     link: "https://www.figma.com/design/vhgtxAQickqJjrM5WsdcX5/Untitled?node-id=0-1&t=JgsNlW3XtznyLZix-1",
@@ -51,6 +57,7 @@ const projects = [
 ];
 
 export default function Work() {
+  const { lang, t } = useApp();
   return (
     <motion.section
       id="karya"
@@ -60,8 +67,8 @@ export default function Work() {
       transition={{ type: "spring", stiffness: 80, damping: 20, velocity: 2 }}
       className="py-20 lg:py-28 bg-cream relative overflow-hidden scroll-mt-20"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header Row */}
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -71,18 +78,20 @@ export default function Work() {
         >
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/40 mb-3">
-              karya pilihan.
+              {t("workTag")}
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black">
-              Proyek.
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-black">
+              {t("workTitle")}
             </h2>
           </div>
-          <a
-            href="#kontak"
-            className="inline-block bg-black text-ngreen font-bold text-sm px-6 py-2.5 border-[3px] border-black shadow-brutal brutal-hover uppercase tracking-wider self-start sm:self-auto sticker-tilt-slight-right hover:!rotate-0"
-          >
-            Pesan Sekarang →
-          </a>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            <Link
+              href="/karya"
+              className="inline-block bg-black text-ngreen font-bold text-sm px-6 py-2.5 border-[3px] border-black shadow-brutal brutal-hover uppercase tracking-wider self-start sm:self-auto sticker-tilt-slight-right hover:!rotate-0"
+            >
+              {t("workCTA")}
+            </Link>
+          </div>
         </motion.div>
 
         {/* Staggered Projects Grid */}
@@ -128,7 +137,7 @@ export default function Work() {
                   {project.img ? (
                     <Image
                       src={project.img}
-                      alt={project.name}
+                      alt={lang === "id" ? project.name_id : project.name_en}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
@@ -152,10 +161,10 @@ export default function Work() {
                       {project.tag}
                     </span>
                     <h3 className="font-display text-lg lg:text-xl font-black text-black mb-1.5 group-hover:text-purple transition-colors">
-                      {project.name}
+                      {lang === "id" ? project.name_id : project.name_en}
                     </h3>
-                    <p className="text-sm text-black/50 leading-relaxed">
-                      {project.description}
+                    <p className="text-base text-black/85 font-medium leading-relaxed">
+                      {lang === "id" ? project.desc_id : project.desc_en}
                     </p>
                   </div>
 
@@ -167,6 +176,16 @@ export default function Work() {
               </a>
             </motion.div>
           ))}
+        </div>
+
+        {/* View All Projects Bottom Banner */}
+        <div className="mt-16 text-center">
+          <Link
+            href="/karya"
+            className="inline-block bg-purple text-white font-black text-base px-8 py-4 border-[3px] border-black shadow-brutal brutal-hover uppercase tracking-wider"
+          >
+            {t("workBannerCTA")}
+          </Link>
         </div>
       </div>
     </motion.section>

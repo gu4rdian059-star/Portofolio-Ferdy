@@ -1,12 +1,25 @@
-const marqueeItems = [
+"use client";
+
+import { useApp } from "@/context/AppContext";
+
+const marqueeItems_id = [
   "pengembangan web",
   "apps mobile",
   "desain grafis",
   "desain UI/UX",
 ];
 
+const marqueeItems_en = [
+  "web development",
+  "mobile apps",
+  "graphic design",
+  "UI/UX design",
+];
+
 export default function Marquee() {
-  const items = [...marqueeItems, ...marqueeItems];
+  const { lang } = useApp();
+  const baseItems = lang === "id" ? marqueeItems_id : marqueeItems_en;
+  const items = [...baseItems, ...baseItems, ...baseItems, ...baseItems];
 
   return (
     <section
