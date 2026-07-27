@@ -13,7 +13,7 @@ export default function Contact() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
       transition={{ type: "spring", stiffness: 80, damping: 20, velocity: 2 }}
-      className="py-20 lg:py-28 bg-ngreen relative overflow-hidden scroll-mt-20 text-black"
+      className="py-20 lg:py-28 bg-ngreen relative overflow-hidden scroll-mt-20 text-black keep-dark-text"
     >
       {/* Decorative huge star background */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
