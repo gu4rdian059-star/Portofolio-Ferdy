@@ -178,7 +178,7 @@ export default function TentangPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-7 bg-white border-[4px] border-black p-6 sm:p-8 shadow-[8px_8px_0px_#000] flex flex-col justify-between h-[540px] sm:h-[500px]"
+              className="lg:col-span-7 bg-white border-[4px] border-black p-6 sm:p-8 shadow-[8px_8px_0px_#000] flex flex-col justify-between h-auto min-h-[540px] sm:min-h-[520px]"
             >
               <div className="flex-1 flex flex-col justify-between">
                 {/* Tab Controls — 100% consistent shadow for all buttons */}
@@ -263,7 +263,7 @@ export default function TentangPage() {
               </div>
 
               {/* Action Buttons Row */}
-              <div className="pt-4 border-t-2 border-black/10 flex flex-wrap gap-4 mt-auto">
+              <div className="pt-5 border-t-2 border-black/10 flex flex-wrap gap-4 mt-auto">
                 <Link
                   href="/karya"
                   className="bg-black text-ngreen font-black text-xs px-6 py-3 border-[2.5px] border-black shadow-[4px_4px_0px_#000] brutal-hover uppercase tracking-wider"
@@ -284,7 +284,7 @@ export default function TentangPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-5 bg-black text-white border-[4px] border-black p-6 sm:p-8 shadow-[8px_8px_0px_#ccff00] relative overflow-hidden flex flex-col justify-between h-[540px] sm:h-[500px]"
+              className="lg:col-span-5 bg-black text-white border-[4px] border-black p-6 sm:p-8 shadow-[8px_8px_0px_#ccff00] relative overflow-hidden flex flex-col justify-between h-auto min-h-[540px] sm:min-h-[520px]"
             >
               <div>
                 <span className="inline-block bg-ngreen text-black text-xs font-black uppercase px-3.5 py-1.5 border-[2px] border-black tracking-wider mb-6">

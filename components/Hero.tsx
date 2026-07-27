@@ -224,7 +224,7 @@ export default function Hero() {
             whileInView={{ opacity: 1, rotate: [0, 2], scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" as const }}
-            className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center max-w-sm lg:max-w-none mx-auto w-full px-2 sm:px-0"
+            className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center max-w-sm lg:max-w-none mx-auto w-full px-2 sm:px-0 pb-8"
           >
             {/* Photo card — responsive tilted, tap to toggle full color on mobile */}
             <div
@@ -247,7 +247,7 @@ export default function Hero() {
               </div>
 
               {/* Floating Badge — bottom right, responsive alignment */}
-              <div className="absolute -bottom-4 right-1 sm:-bottom-5 sm:-right-4 bg-ngreen border-[3px] border-black shadow-brutal px-3.5 sm:px-5 py-2 sm:py-3 sticker-tilt-left z-20">
+              <div className="absolute -bottom-6 right-1 sm:-bottom-7 sm:-right-4 bg-ngreen border-[3px] border-black shadow-brutal px-3.5 sm:px-5 py-2 sm:py-3 sticker-tilt-left z-20">
                 <span className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold text-black whitespace-nowrap">
                   <span className="inline-block w-2 sm:w-2.5 h-2 sm:h-2.5 bg-black animate-pulse-dot" />
                   {t("heroOpenForWork")}
