@@ -37,7 +37,7 @@ const faqs = [
 
 export default function FAQ() {
   const { lang } = useApp();
-  const [openId, setOpenId] = useState<number | null>(1);
+  const [openId, setOpenId] = useState<number | null>(null);
 
   const toggleAccordion = (id: number) => {
     setOpenId(openId === id ? null : id);

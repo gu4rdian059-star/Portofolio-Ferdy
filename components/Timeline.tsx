@@ -40,7 +40,7 @@ export default function Timeline() {
   const { lang } = useApp();
 
   return (
-    <section className="py-20 lg:py-24 bg-cream relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-cream dark:bg-[#0d0d0d] relative overflow-hidden">
       <div className="mx-auto max-w-5xl px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
@@ -59,7 +59,7 @@ export default function Timeline() {
         </motion.div>
 
         {/* Timeline Stack Cards */}
-        <div className="relative border-l-[4px] border-black ml-4 sm:ml-8 pl-6 sm:pl-10 flex flex-col gap-10">
+        <div className="relative border-l-[4px] border-black dark:border-white ml-4 sm:ml-8 pl-6 sm:pl-10 flex flex-col gap-10">
           {milestones.map((m, i) => (
             <motion.div
               key={i}
@@ -76,13 +76,13 @@ export default function Timeline() {
             >
               {/* Pin node on vertical line */}
               <div
-                className="absolute -left-[35px] sm:-left-[51px] top-6 w-6 h-6 border-[3px] border-black bg-white shadow-[2px_2px_0px_#000] flex items-center justify-center font-mono text-[10px] font-black group-hover:bg-ngreen transition-colors"
+                className="absolute -left-[35px] sm:-left-[51px] top-6 w-6 h-6 border-[3px] border-black dark:border-white bg-white dark:bg-[#181818] shadow-[2px_2px_0px_#000] flex items-center justify-center font-mono text-[10px] font-black text-black dark:text-white group-hover:bg-ngreen group-hover:text-black transition-colors"
               >
                 ✦
               </div>
 
               {/* Milestone Card */}
-              <div className="bg-white border-[3px] border-black p-6 sm:p-8 shadow-[6px_6px_0px_#000] relative overflow-hidden brutal-hover">
+              <div className="bg-white dark:bg-[#181818] border-[3px] border-black dark:border-white/30 p-6 sm:p-8 shadow-[6px_6px_0px_#000] dark:shadow-[6px_6px_0px_#ccff00] relative overflow-hidden brutal-hover">
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                   <span
                     className="text-xs font-black uppercase px-3 py-1 border-[2px] border-black tracking-wider shadow-[2px_2px_0px_#000]"
@@ -90,15 +90,15 @@ export default function Timeline() {
                   >
                     {m.year}
                   </span>
-                  <span className="text-xs font-bold uppercase tracking-wider text-black/50">
+                  <span className="text-xs font-bold uppercase tracking-wider text-black/50 dark:text-white/50">
                     {m.category}
                   </span>
                 </div>
 
-                <h3 className="font-display text-2xl font-black text-black mb-3">
+                <h3 className="font-display text-2xl font-black text-black dark:text-white mb-3">
                   {lang === "id" ? m.title_id : m.title_en}
                 </h3>
-                <p className="text-black/90 text-base sm:text-lg leading-relaxed font-medium">
+                <p className="text-black/90 dark:text-white/80 text-base sm:text-lg leading-relaxed font-medium">
                   {lang === "id" ? m.desc_id : m.desc_en}
                 </p>
               </div>
