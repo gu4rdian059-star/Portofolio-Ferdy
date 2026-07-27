@@ -75,8 +75,10 @@ html.dark .text-black\/90:not(.keep-dark-text .text-black\/90) {
 }
 
 /* Preserve dark text on colored backgrounds (ngreen, pink, etc.) */
-html.dark .keep-dark-text,
-html.dark .keep-dark-text .text-black {
+html.dark .keep-dark-text.text-black,
+html.dark .keep-dark-text .text-black,
+html.dark section.keep-dark-text,
+html.dark div.keep-dark-text {
   color: #0a0a0a !important;
 }
 
@@ -91,6 +93,10 @@ html.dark .keep-dark-text .bg-cream {
 
 html.dark .keep-dark-text .border-black {
   border-color: #0a0a0a !important;
+}
+
+html.dark .keep-dark-text * {
+  color: inherit;
 }
 
 html.dark .border-black {
