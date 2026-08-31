@@ -171,14 +171,15 @@ export default function Hero() {
               className="bg-purple border-[4px] border-black shadow-brutal sm:shadow-brutal-lg p-4 sm:p-5 lg:p-6 relative lg:translate-y-6 group cursor-pointer w-full max-w-[290px] sm:max-w-sm lg:max-w-none lg:rotate-3 select-none active:scale-95 transition-transform"
             >
               <div className="relative aspect-[3/4] w-full border-[4px] border-black overflow-hidden bg-black">
-                <Image
+                <img
                   src={isPhotoColored ? "/me-color.webp" : "/me.webp"}
                   alt="Foto profil Ferdy Firmansyah - UI/UX Designer & Web Developer"
                   width={320}
                   height={427}
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                  priority
-                  unoptimized
                 />
               </div>
 
