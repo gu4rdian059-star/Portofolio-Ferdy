@@ -216,11 +216,11 @@ export default function Hero() {
 
           {/* RIGHT COLUMN — 5 cols (narrower, asymmetric) */}
           <motion.div
-            initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
+            initial={{ opacity: 1, rotate: 0, scale: 1 }}
             animate={{ opacity: 1, rotate: 0, scale: 1 }}
             whileInView={{ opacity: 1, rotate: [0, 2], scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" as const }}
+            transition={{ duration: 0.5, ease: "easeOut" as const }}
             className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center max-w-sm lg:max-w-none mx-auto w-full px-2 sm:px-0 pb-8"
           >
             {/* Photo card — responsive tilted, tap to toggle full color on mobile */}
@@ -240,6 +240,7 @@ export default function Hero() {
                   }`}
                   sizes="(max-width: 640px) 290px, (max-width: 1024px) 380px, 420px"
                   priority
+                  quality={85}
                 />
               </div>
 

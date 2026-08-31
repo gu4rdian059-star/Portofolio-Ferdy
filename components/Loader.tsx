@@ -17,7 +17,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
 
   useEffect(() => {
     let start = 0;
-    const duration = 400; // Optimized loading duration (0.4s) to ensure blazing-fast FCP & LCP
+    const duration = 120; // 0.12s total duration for instantaneous LCP & zero TBT
     const intervalTime = 16;
     const step = 100 / (duration / intervalTime);
 
@@ -28,12 +28,11 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
         clearInterval(timer);
         setTimeout(() => {
           onComplete();
-        }, 150); // Snappy exit pause
+        }, 50);
       } else {
         const currentProgress = Math.floor(start);
         setProgress(currentProgress);
 
-        // Update loading word based on current progress
         const word = loadingWords.find(
           (w) => currentProgress >= w.range[0] && currentProgress <= w.range[1]
         );
@@ -50,8 +49,8 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
     <motion.div
       initial={{ y: 0 }}
       exit={{ y: "-100%" }}
-      transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-      className="fixed inset-0 z-[9999] bg-black text-white flex flex-col justify-between p-6 md:p-10 select-none font-sans"
+      transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }}
+      className="fixed inset-0 z-[9999] bg-black text-white flex flex-col justify-between p-6 md:p-10 select-none font-sans pointer-events-none"
     >
       {/* Top Bar */}
       <div className="flex justify-between items-center border-b-[2px] border-white/20 pb-4">
