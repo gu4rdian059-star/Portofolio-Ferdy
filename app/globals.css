@@ -234,3 +234,26 @@ html.dark .hero-dot-grid {
   background: #0a0a0a;
   border: 2px solid #f5f2eb;
 }
+
+/* ===== BRUTALIST SWIPE PANEL ANIMATIONS ===== */
+@keyframes swipe-panel {
+  0% { transform: translateX(-100%); }
+  45% { transform: translateX(0%); }
+  55% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-swipe-panel {
+  animation: swipe-panel 1.0s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+.animate-swipe-panel-delay1 {
+  animation: swipe-panel 1.0s cubic-bezier(0.76, 0, 0.24, 1) 0.08s forwards;
+  transform: translateX(-100%);
+}
+
+.animate-swipe-panel-delay2 {
+  animation: swipe-panel 1.0s cubic-bezier(0.76, 0, 0.24, 1) 0.16s forwards;
+  transform: translateX(-100%);
+}
+

@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 import { useApp } from "@/context/AppContext";
 
 export default function Navbar() {
@@ -124,41 +123,35 @@ export default function Navbar() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden border-t-[3px] border-black bg-cream overflow-hidden"
-          >
-            <div className="flex flex-col px-6 py-4 gap-4">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`text-sm font-bold uppercase tracking-widest transition-colors ${isActive ? "text-purple font-black" : "text-black hover:text-purple"
-                      }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-              <Link
-                href="/kontak"
-                onClick={() => setMobileOpen(false)}
-                className="inline-block bg-white text-black dark:bg-black dark:text-ngreen font-black text-sm px-6 py-2.5 border-[3px] border-black dark:border-white shadow-brutal text-center uppercase tracking-wider"
-              >
-                {t("navCTA")}
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {mobileOpen && (
+        <div
+          className="md:hidden border-t-[3px] border-black bg-cream overflow-hidden"
+        >
+          <div className="flex flex-col px-6 py-4 gap-4">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`text-sm font-bold uppercase tracking-widest transition-colors ${isActive ? "text-purple font-black" : "text-black hover:text-purple"
+                    }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/kontak"
+              onClick={() => setMobileOpen(false)}
+              className="inline-block bg-white text-black dark:bg-black dark:text-ngreen font-black text-sm px-6 py-2.5 border-[3px] border-black dark:border-white shadow-brutal text-center uppercase tracking-wider"
+            >
+              {t("navCTA")}
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

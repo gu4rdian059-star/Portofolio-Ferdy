@@ -1,19 +1,21 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
-import Education from "@/components/Education";
-import Services from "@/components/Services";
-import SkillMatrix from "@/components/SkillMatrix";
-import Work from "@/components/Work";
-import Timeline from "@/components/Timeline";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+
+/* Below-fold components: lazy-loaded so framer-motion isn't in the critical bundle */
+const Education = dynamic(() => import("@/components/Education"), { ssr: false });
+const Services = dynamic(() => import("@/components/Services"), { ssr: false });
+const SkillMatrix = dynamic(() => import("@/components/SkillMatrix"), { ssr: false });
+const Work = dynamic(() => import("@/components/Work"), { ssr: false });
+const Timeline = dynamic(() => import("@/components/Timeline"), { ssr: false });
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: false });
+const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: false });
+const Contact = dynamic(() => import("@/components/Contact"), { ssr: false });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
 
 export default function Home() {
   const [isSwiping, setIsSwiping] = useState(false);
@@ -45,61 +47,24 @@ export default function Home() {
     return () => document.removeEventListener("click", handleAnchorClick);
   }, [isSwiping]);
 
+  // Lazy-load swipe animation only when needed
+  useEffect(() => {
+    if (isSwiping) {
+      const timeout = setTimeout(() => setIsSwiping(false), 1200);
+      return () => clearTimeout(timeout);
+    }
+  }, [isSwiping]);
+
   return (
     <>
-      {/* Brutalist Swipe Navigation Transition Panels */}
-      <AnimatePresence>
-        {isSwiping && (
-          <>
-            {/* Trailing Panel 1 (Pink) */}
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: ["-100%", "0%", "100%"] }}
-              transition={{
-                duration: 1.0,
-                times: [0, 0.5, 1.0],
-                ease: [0.76, 0, 0.24, 1]
-              }}
-              className="fixed inset-0 bg-pink z-[9996] pointer-events-none"
-            />
-            {/* Trailing Panel 2 (Neon Green) */}
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: ["-100%", "0%", "100%"] }}
-              transition={{
-                duration: 1.0,
-                times: [0, 0.5, 1.0],
-                ease: [0.76, 0, 0.24, 1],
-                delay: 0.08
-              }}
-              className="fixed inset-0 bg-ngreen z-[9997] pointer-events-none"
-            />
-            {/* Main Panel (Black) */}
-            <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: ["-100%", "0%", "100%"] }}
-              transition={{
-                duration: 1.0,
-                times: [0, 0.5, 1.0],
-                ease: [0.76, 0, 0.24, 1],
-                delay: 0.16
-              }}
-              onAnimationComplete={() => setIsSwiping(false)}
-              className="fixed inset-0 bg-black z-[9998] pointer-events-none flex items-center justify-center"
-            >
-              {/* Spinning star inside the swipe */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5, rotate: 0 }}
-                animate={{ opacity: [0, 1, 0], scale: [0.5, 1.2, 0.5], rotate: 360 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-ngreen text-7xl font-black"
-              >
-                ✦
-              </motion.div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {/* Brutalist Swipe: CSS-only version to avoid loading framer-motion in critical path */}
+      {isSwiping && (
+        <>
+          <div className="fixed inset-0 z-[9996] pointer-events-none animate-swipe-panel bg-pink" />
+          <div className="fixed inset-0 z-[9997] pointer-events-none animate-swipe-panel-delay1 bg-ngreen" />
+          <div className="fixed inset-0 z-[9998] pointer-events-none animate-swipe-panel-delay2 bg-black" />
+        </>
+      )}
 
       <Navbar />
       <main>
@@ -118,4 +83,3 @@ export default function Home() {
     </>
   );
 }
-
