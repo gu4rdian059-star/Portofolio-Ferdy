@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useApp } from "@/context/AppContext";
@@ -52,17 +51,6 @@ function CountUp({
   );
 }
 
-/* ===== ANIMATION VARIANTS ===== */
-const containerVariants = {
-  hidden: { opacity: 1 },
-  visible: { opacity: 1 },
-};
-
-const itemVariants = {
-  hidden: { opacity: 1, y: 0 },
-  visible: { opacity: 1, y: 0 },
-};
-
 export default function Hero() {
   const { lang, t } = useApp();
   const [isPhotoColored, setIsPhotoColored] = useState(false);
@@ -83,14 +71,9 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           {/* LEFT COLUMN — 7 cols (wider, asymmetric) */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="order-2 lg:order-1 lg:col-span-7"
-          >
+          <div className="order-2 lg:order-1 lg:col-span-7">
             {/* Availability Badge & School Badge Row — tilted stickers */}
-            <motion.div variants={itemVariants} className="mb-8 flex flex-wrap gap-3 items-center">
+            <div className="mb-8 flex flex-wrap gap-3 items-center">
               <span className="inline-block bg-pink text-black text-xs font-black px-4 py-2.5 border-[3px] border-black shadow-brutal uppercase tracking-wider sticker-tilt-left">
                 {t("heroBadge")}
               </span>
@@ -98,13 +81,10 @@ export default function Hero() {
                 <Image src="/school/smkn1pasuruan.png" alt="SMKN 1 Pasuruan" width={18} height={18} className="object-contain" priority />
                 SMKN 1 PASURAN — RPL
               </span>
-            </motion.div>
+            </div>
 
             {/* Headline — super big, tight */}
-            <motion.h1
-              variants={itemVariants}
-              className="font-display text-4xl sm:text-7xl lg:text-8xl xl:text-[105px] font-black tracking-tighter leading-[1.1] sm:leading-[1.0] lg:leading-[0.85] mb-8 text-black"
-            >
+            <h1 className="font-display text-4xl sm:text-7xl lg:text-8xl xl:text-[105px] font-black tracking-tighter leading-[1.1] sm:leading-[1.0] lg:leading-[0.85] mb-8 text-black">
               {lang === "id" ? "halo, saya" : "hello, I'm"}{" "}
               <br className="hidden sm:inline" />
               <span className="relative inline-block mr-2 my-1">
@@ -137,21 +117,15 @@ export default function Hero() {
                   <span className="text-purple italic">punchy.</span>
                 </>
               )}
-            </motion.h1>
+            </h1>
 
             {/* Subtext */}
-            <motion.p
-              variants={itemVariants}
-              className="text-lg lg:text-xl text-black/80 mb-10 max-w-xl leading-relaxed font-medium"
-            >
+            <p className="text-lg lg:text-xl text-black/80 mb-10 max-w-xl leading-relaxed font-medium">
               {t("heroSubtext")}
-            </motion.p>
+            </p>
 
             {/* CTA Buttons — sticker style */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap gap-4 mb-12"
-            >
+            <div className="flex flex-wrap gap-4 mb-12">
               <Link
                 href="/karya"
                 className="inline-block bg-black text-ngreen font-bold text-sm px-8 py-4 border-[3px] border-black shadow-brutal brutal-hover uppercase tracking-wider"
@@ -164,13 +138,10 @@ export default function Hero() {
               >
                 {t("heroCTAContact")}
               </Link>
-            </motion.div>
+            </div>
 
             {/* Stats Row — tilted badges */}
-            <motion.div
-              variants={itemVariants}
-              className="border-t-[3px] border-black pt-8 flex flex-wrap gap-6 lg:gap-10"
-            >
+            <div className="border-t-[3px] border-black pt-8 flex flex-wrap gap-6 lg:gap-10">
               <div className="flex flex-col sticker-tilt-slight-left">
                 <CountUp target={15} suffix="+" />
                 <span className="text-[10px] font-bold text-black/80 uppercase tracking-wider mt-1">
@@ -189,18 +160,11 @@ export default function Hero() {
                   {t("heroStatExp")}
                 </span>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* RIGHT COLUMN — 5 cols (narrower, asymmetric) */}
-          <motion.div
-            initial={{ opacity: 1, rotate: 0, scale: 1 }}
-            animate={{ opacity: 1, rotate: 0, scale: 1 }}
-            whileInView={{ opacity: 1, rotate: [0, 2], scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: "easeOut" as const }}
-            className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center max-w-sm lg:max-w-none mx-auto w-full px-2 sm:px-0 pb-8"
-          >
+          <div className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center max-w-sm lg:max-w-none mx-auto w-full px-2 sm:px-0 pb-8">
             {/* Photo card — responsive tilted, tap to toggle full color on mobile */}
             <div
               onClick={() => setIsPhotoColored(!isPhotoColored)}
@@ -210,13 +174,13 @@ export default function Hero() {
                 <Image
                   src="/me.webp"
                   alt="Foto profil Ferdy Firmansyah - UI/UX Designer & Web Developer"
-                  fill
-                  className={`object-cover transition-all duration-500 ease-out group-hover:scale-105 ${
+                  width={450}
+                  height={600}
+                  className={`w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-105 ${
                     isPhotoColored
                       ? "grayscale-0 contrast-100 scale-105"
                       : "grayscale contrast-125 group-hover:grayscale-0 group-hover:contrast-100"
                   }`}
-                  sizes="(max-width: 640px) 290px, (max-width: 1024px) 380px, 420px"
                   priority
                   unoptimized
                 />
@@ -230,7 +194,7 @@ export default function Hero() {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
