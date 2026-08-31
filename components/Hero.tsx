@@ -208,7 +208,7 @@ export default function Hero() {
             >
               <div className="relative aspect-[3/4] w-full border-[4px] border-black overflow-hidden bg-black">
                 <Image
-                  src="/me.png"
+                  src="/me.webp"
                   alt="Foto profil Ferdy Firmansyah - UI/UX Designer & Web Developer"
                   fill
                   className={`object-cover transition-all duration-500 ease-out group-hover:scale-105 ${
@@ -218,7 +218,7 @@ export default function Hero() {
                   }`}
                   sizes="(max-width: 640px) 290px, (max-width: 1024px) 380px, 420px"
                   priority
-                  quality={85}
+                  unoptimized
                 />
               </div>
 

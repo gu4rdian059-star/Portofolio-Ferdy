@@ -36,9 +36,9 @@ export default function RootLayout({
       <head>
         <link
           rel="preload"
-          href="/me.png"
+          href="/me.webp"
           as="image"
-          type="image/png"
+          type="image/webp"
           fetchPriority="high"
         />
       </head>
