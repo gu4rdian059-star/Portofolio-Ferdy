@@ -174,8 +174,8 @@ export default function Hero() {
                 <Image
                   src="/me.webp"
                   alt="Foto profil Ferdy Firmansyah - UI/UX Designer & Web Developer"
-                  width={450}
-                  height={600}
+                  width={320}
+                  height={427}
                   className={`w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-105 ${
                     isPhotoColored
                       ? "grayscale-0 contrast-100 scale-105"
