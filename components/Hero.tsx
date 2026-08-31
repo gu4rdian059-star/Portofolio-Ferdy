@@ -54,22 +54,13 @@ function CountUp({
 
 /* ===== ANIMATION VARIANTS ===== */
 const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { 
-      staggerChildren: 0.05,
-      delayChildren: 0 // Zero delay for instantaneous LCP
-    },
-  },
+  hidden: { opacity: 1 },
+  visible: { opacity: 1 },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.35, ease: "easeOut" as const },
-  },
+  hidden: { opacity: 1, y: 0 },
+  visible: { opacity: 1, y: 0 },
 };
 
 export default function Hero() {

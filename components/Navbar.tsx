@@ -20,11 +20,8 @@ export default function Navbar() {
   ];
 
   return (
-    <motion.nav
+    <nav
       id="navbar"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.8 }}
       className="fixed top-0 left-0 right-0 z-50 bg-cream border-b-[3px] border-black transition-colors"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -162,7 +159,7 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 }
 
