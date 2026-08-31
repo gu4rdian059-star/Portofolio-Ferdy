@@ -13,7 +13,7 @@ function CountUp({
   target: number;
   suffix?: string;
 }) { 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target);
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
@@ -23,8 +23,8 @@ function CountUp({
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
           let start = 0;
-          const duration = 1500;
-          const intervalMs = 40; // 40ms interval to minimize CPU thread blocking
+          const duration = 1200;
+          const intervalMs = 50;
           const increment = target / (duration / intervalMs);
           const timer = setInterval(() => {
             start += increment;
@@ -78,7 +78,7 @@ export default function Hero() {
                 {t("heroBadge")}
               </span>
               <span className="inline-flex items-center gap-2 bg-ngreen text-black text-xs font-black px-4 py-2 border-[3px] border-black shadow-brutal uppercase tracking-wider sticker-tilt-right">
-                <Image src="/school/smkn1pasuruan.png" alt="SMKN 1 Pasuruan" width={18} height={18} className="object-contain" priority />
+                <Image src="/school/smkn1pasuruan.webp" alt="SMKN 1 Pasuruan" width={18} height={18} className="object-contain" priority unoptimized />
                 SMKN 1 PASURAN — RPL
               </span>
             </div>

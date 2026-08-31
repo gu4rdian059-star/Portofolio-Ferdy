@@ -52,11 +52,12 @@ export default function Education() {
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
                 <div className="relative w-28 h-32 shrink-0 bg-cream p-2 border-[3px] border-black shadow-[4px_4px_0px_#000] flex items-center justify-center">
                   <Image
-                    src="/school/smkn1pasuruan.png"
+                    src="/school/smkn1pasuruan.webp"
                     alt="Logo SMKN 1 Pasuruan"
                     width={100}
                     height={110}
                     className="object-contain"
+                    unoptimized
                   />
                 </div>
                 <div>
@@ -104,11 +105,12 @@ export default function Education() {
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
                 <div className="relative w-28 h-32 shrink-0 bg-cream p-2 border-[3px] border-black shadow-[4px_4px_0px_#000] flex items-center justify-center">
                   <Image
-                    src="/school/rpl.jpg"
+                    src="/school/rpl.webp"
                     alt="Logo Jurusan RPL"
                     width={100}
                     height={110}
                     className="object-contain"
+                    unoptimized
                   />
                 </div>
                 <div>
