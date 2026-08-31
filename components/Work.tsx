@@ -7,7 +7,7 @@ import { useApp } from "@/context/AppContext";
 
 const projects = [
   {
-    img: "/work/work1.png",
+    img: "/work/work1.webp",
     color: "#ccff00",
     tag: "UI/UX Design",
     name_id: "Desain UI-UX Apps Merchant",
@@ -19,7 +19,7 @@ const projects = [
     link: "https://www.figma.com/design/gYiujwC8535GgY1Ww24mJC/Apps-Koperasi?node-id=3202-1542&t=QlCARnVPsZvofwET-1",
   },
   {
-    img: "/work/work2.png",
+    img: "/work/work2.webp",
     color: "#ff2d9b",
     tag: "Website Design",
     name_id: "Website Kasir Neo-Brutalist",
@@ -31,7 +31,7 @@ const projects = [
     link: "https://project-kasir-pi.vercel.app",
   },
   {
-    img: "/work/work3.png",
+    img: "/work/work3.webp",
     color: "#7b2fbe",
     tag: "Website Design",
     name_id: "Website Sewa Outdoor",
@@ -43,7 +43,7 @@ const projects = [
     link: "https://github.com/gu4rdian059-star/Portofolio-Ferdy",
   },
   {
-    img: "/work/work4.png",
+    img: "/work/work4.webp",
     color: "#ff6b00",
     tag: "UI/UX Mobile Apps",
     name_id: "Desain Aplikasi To Do List Ibadah",
@@ -142,6 +142,7 @@ export default function Work() {
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
+                      unoptimized
                     />
                   ) : (
                     /* Subtle pattern inside thumbnail when no image */

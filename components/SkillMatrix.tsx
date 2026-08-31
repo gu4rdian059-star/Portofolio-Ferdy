@@ -298,12 +298,8 @@ export default function SkillMatrix() {
             {filteredSkills.map((skill) => {
               const isSelected = selectedSkill?.id === skill.id;
               return (
-                <motion.div
+                <div
                   key={skill.id}
-                  layout
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
                   onClick={() => setSelectedSkill(skill)}
                   className={`bg-white border-[3px] border-black p-4 shadow-[4px_4px_0px_#000] cursor-pointer transition-all ${
                     isSelected ? "ring-4 ring-purple border-black shadow-[6px_6px_0px_#7b2fbe]" : "hover:bg-[#fbf9f4]"
@@ -319,15 +315,12 @@ export default function SkillMatrix() {
 
                   {/* Progress bar */}
                   <div className="w-full h-4 bg-[#eee] border-[2px] border-black shadow-[2px_2px_0px_#000] p-0.5 relative">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
-                      className="h-full"
-                      style={{ backgroundColor: skill.color }}
+                    <div
+                      className="h-full transition-all duration-500"
+                      style={{ width: `${skill.level}%`, backgroundColor: skill.color }}
                     />
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

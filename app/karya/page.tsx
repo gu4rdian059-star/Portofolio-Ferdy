@@ -11,7 +11,7 @@ import { useApp } from "@/context/AppContext";
 const projects = [
   {
     id: 1,
-    img: "/work/work1.png",
+    img: "/work/work1.webp",
     color: "#ccff00",
     category: "UI/UX Design",
     name_id: "Desain UI-UX Apps Merchant",
@@ -24,7 +24,7 @@ const projects = [
   },
   {
     id: 2,
-    img: "/work/work2.png",
+    img: "/work/work2.webp",
     color: "#ff2d9b",
     category: "Website Design",
     name_id: "Website Kasir Neo-Brutalist",
@@ -37,7 +37,7 @@ const projects = [
   },
   {
     id: 3,
-    img: "/work/work3.png",
+    img: "/work/work3.webp",
     color: "#7b2fbe",
     category: "Website Design",
     name_id: "Website Sewa Alat Outdoor",
@@ -50,7 +50,7 @@ const projects = [
   },
   {
     id: 4,
-    img: "/work/work4.png",
+    img: "/work/work4.webp",
     color: "#ff6b00",
     category: "UI/UX Mobile Apps",
     name_id: "Desain Aplikasi To Do List Ibadah",
