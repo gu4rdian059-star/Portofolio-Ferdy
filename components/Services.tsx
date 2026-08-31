@@ -121,16 +121,9 @@ export default function Services() {
       className="py-20 lg:py-28 bg-cream relative scroll-mt-20"
     >
       {/* Decorative star */}
-      <motion.div
-        animate={{ y: [0, -12, 0], rotate: [0, 360] }}
-        transition={{
-          y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-          rotate: { duration: 25, repeat: Infinity, ease: "linear" }
-        }}
-        className="deco-star -left-20 top-20 text-black hidden lg:block"
-      >
+      <div className="deco-star -left-20 top-20 text-black hidden lg:block animate-spin-slow">
         ✦
-      </motion.div>
+      </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         {/* Header */}

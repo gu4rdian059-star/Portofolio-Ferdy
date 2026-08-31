@@ -7,14 +7,14 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-space-grotesk",
-  weight: ["400", "500", "600", "700"],
+  preload: true,
 });
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-playfair-display",
-  weight: ["700", "900"],
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -33,6 +33,15 @@ export default function RootLayout({
       lang="id"
       className={`${spaceGrotesk.variable} ${playfairDisplay.variable} antialiased`}
     >
+      <head>
+        <link
+          rel="preload"
+          href="/me.png"
+          as="image"
+          type="image/png"
+          fetchPriority="high"
+        />
+      </head>
       <body className="min-h-screen">
         <AppProvider>{children}</AppProvider>
       </body>

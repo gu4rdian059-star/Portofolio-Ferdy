@@ -17,13 +17,9 @@ export default function Contact() {
     >
       {/* Decorative huge star background */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 65, repeat: Infinity, ease: "linear" }}
-          className="text-[400px] lg:text-[600px] text-black opacity-[0.04] font-black leading-none flex items-center justify-center w-0 h-0"
-        >
+        <div className="text-[400px] lg:text-[600px] text-black opacity-[0.04] font-black leading-none flex items-center justify-center w-0 h-0 animate-spin-reverse-slow">
           ✦
-        </motion.div>
+        </div>
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">

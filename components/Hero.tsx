@@ -76,22 +76,9 @@ export default function Hero() {
       <div className="hero-dot-grid" />
 
       {/* Decorative floating star — top right */}
-      <motion.div
-        initial={{ opacity: 0, rotate: -20, y: 0 }}
-        animate={{ 
-          opacity: 0.07, 
-          rotate: 360, 
-          y: [0, -20, 0] 
-        }}
-        transition={{ 
-          opacity: { duration: 1.2, delay: 0.5 },
-          rotate: { duration: 30, repeat: Infinity, ease: "linear" },
-          y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
-        }}
-        className="absolute -top-10 right-10 text-[280px] font-black text-black pointer-events-none select-none hidden lg:block"
-      >
+      <div className="absolute -top-10 right-10 text-[280px] font-black text-black pointer-events-none select-none hidden lg:block opacity-[0.07] animate-spin-slow">
         ✦
-      </motion.div>
+      </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
