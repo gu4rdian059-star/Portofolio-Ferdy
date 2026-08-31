@@ -207,13 +207,13 @@ export default function SkillMatrix() {
           transition={{ type: "spring", stiffness: 100, damping: 15 }}
           className="mb-10 text-center max-w-2xl mx-auto"
         >
-          <span className="inline-block bg-pink text-white text-xs font-black uppercase px-3.5 py-1.5 border-[2px] border-black tracking-widest mb-3 sticker-tilt-slight-right">
+          <span className="inline-block bg-pink text-black text-xs font-black uppercase px-3.5 py-1.5 border-[2px] border-black tracking-widest mb-3 sticker-tilt-slight-right">
             {lang === "id" ? "✦ Real-Time Matrix & Stats" : "✦ Real-Time Matrix & Stats"}
           </span>
           <h2 className="font-display text-4xl sm:text-5xl font-black text-black">
             {lang === "id" ? "Matriks Keahlian Teknis." : "Technical Skill Matrix."}
           </h2>
-          <p className="text-black/80 font-medium text-sm sm:text-base mt-2">
+          <p className="text-black/85 font-medium text-sm sm:text-base mt-2">
             {lang === "id"
               ? "Klik pada keahlian mana pun untuk membuka detail pengalaman proyek & fitur utama secara interaktif."
               : "Click on any skill to interactively inspect project experience & core capabilities."}
@@ -224,25 +224,25 @@ export default function SkillMatrix() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           <div className="bg-white dark:bg-[#181818] text-black dark:text-white p-4 border-[3px] border-black shadow-[4px_4px_0px_#ccff00] text-center">
             <span className="font-display text-2xl sm:text-3xl font-black text-purple dark:text-ngreen block leading-none">18+</span>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-black/80 dark:text-white/70 mt-1 block">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-black/85 dark:text-white/70 mt-1 block">
               {lang === "id" ? "Proyek Selesai" : "Completed Projects"}
             </span>
           </div>
           <div className="bg-white dark:bg-[#181818] text-black dark:text-white p-4 border-[3px] border-black shadow-[4px_4px_0px_#ff2d9b] text-center">
             <span className="font-display text-2xl sm:text-3xl font-black text-pink block leading-none">250+</span>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-black/80 dark:text-white/70 mt-1 block">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-black/85 dark:text-white/70 mt-1 block">
               {lang === "id" ? "Commits GitHub" : "GitHub Commits"}
             </span>
           </div>
           <div className="bg-white dark:bg-[#181818] text-black dark:text-white p-4 border-[3px] border-black shadow-[4px_4px_0px_#7b2fbe] text-center">
             <span className="font-display text-2xl sm:text-3xl font-black text-purple block leading-none">100%</span>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-black/80 dark:text-white/70 mt-1 block">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-black/85 dark:text-white/70 mt-1 block">
               {lang === "id" ? "Responsive UI" : "Responsive UI"}
             </span>
           </div>
           <div className="bg-white dark:bg-[#181818] text-black dark:text-white p-4 border-[3px] border-black shadow-[4px_4px_0px_#000] dark:shadow-[4px_4px_0px_#fff] text-center">
             <span className="font-display text-2xl sm:text-3xl font-black text-black dark:text-white block leading-none">95%+</span>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-black/80 dark:text-white/70 mt-1 block">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-black/85 dark:text-white/70 mt-1 block">
               {lang === "id" ? "Rata-Rata Mastery" : "Average Mastery"}
             </span>
           </div>
@@ -274,15 +274,17 @@ export default function SkillMatrix() {
 
           {/* Real-time Level Filter Slider */}
           <div className="flex items-center gap-3">
-            <label className="text-xs font-black uppercase text-black/70 shrink-0">
+            <label htmlFor="min-level-slider" className="text-xs font-black uppercase text-black/80 shrink-0">
               {lang === "id" ? "Filter Level Min:" : "Min Level Filter:"} <span className="font-mono text-purple">{minLevel}%</span>
             </label>
             <input
+              id="min-level-slider"
               type="range"
               min="75"
               max="95"
               step="5"
               value={minLevel}
+              aria-label={lang === "id" ? "Filter level minimal keahlian" : "Filter minimum skill level"}
               onChange={(e) => setMinLevel(Number(e.target.value))}
               className="accent-purple cursor-pointer w-32"
             />
@@ -345,7 +347,7 @@ export default function SkillMatrix() {
                   <div className="flex items-center justify-between gap-3 mb-4 pb-3 border-b border-black/20 dark:border-white/20">
                     <span
                       className="text-xs font-black uppercase px-2.5 py-1 border border-black shadow-[2px_2px_0px_#000]"
-                      style={{ backgroundColor: selectedSkill.color, color: selectedSkill.color === "#ccff00" ? "#000" : "#fff" }}
+                      style={{ backgroundColor: selectedSkill.color, color: selectedSkill.color === "#ccff00" || selectedSkill.color === "#ff2d9b" ? "#000" : "#fff" }}
                     >
                       {lang === "id" ? selectedSkill.categoryName_id : selectedSkill.categoryName_en}
                     </span>

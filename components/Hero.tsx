@@ -56,8 +56,8 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: { 
-      staggerChildren: 0.12,
-      delayChildren: 1.0 // Delay to allow the intro loader to slide up
+      staggerChildren: 0.08,
+      delayChildren: 0.1 // Snappy reveal for immediate LCP paint
     },
   },
 };
@@ -116,11 +116,11 @@ export default function Hero() {
           >
             {/* Availability Badge & School Badge Row — tilted stickers */}
             <motion.div variants={itemVariants} className="mb-8 flex flex-wrap gap-3 items-center">
-              <span className="inline-block bg-pink text-white text-xs font-bold px-4 py-2.5 border-[3px] border-black shadow-brutal uppercase tracking-wider sticker-tilt-left">
+              <span className="inline-block bg-pink text-black text-xs font-black px-4 py-2.5 border-[3px] border-black shadow-brutal uppercase tracking-wider sticker-tilt-left">
                 {t("heroBadge")}
               </span>
               <span className="inline-flex items-center gap-2 bg-ngreen text-black text-xs font-black px-4 py-2 border-[3px] border-black shadow-brutal uppercase tracking-wider sticker-tilt-right">
-                <Image src="/school/smkn1pasuruan.png" alt="SMKN 1 Pasuruan" width={18} height={18} className="object-contain" />
+                <Image src="/school/smkn1pasuruan.png" alt="SMKN 1 Pasuruan" width={18} height={18} className="object-contain" priority />
                 SMKN 1 PASURAN — RPL
               </span>
             </motion.div>
@@ -167,7 +167,7 @@ export default function Hero() {
             {/* Subtext */}
             <motion.p
               variants={itemVariants}
-              className="text-lg lg:text-xl text-black/70 mb-10 max-w-xl leading-relaxed"
+              className="text-lg lg:text-xl text-black/80 mb-10 max-w-xl leading-relaxed font-medium"
             >
               {t("heroSubtext")}
             </motion.p>
@@ -198,19 +198,19 @@ export default function Hero() {
             >
               <div className="flex flex-col sticker-tilt-slight-left">
                 <CountUp target={15} suffix="+" />
-                <span className="text-[10px] font-semibold text-black/60 uppercase tracking-wider mt-1">
+                <span className="text-[10px] font-bold text-black/80 uppercase tracking-wider mt-1">
                   {t("heroStatProjects")}
                 </span>
               </div>
               <div className="flex flex-col sticker-tilt-slight-right">
                 <CountUp target={15} suffix="+" />
-                <span className="text-[10px] font-semibold text-black/60 uppercase tracking-wider mt-1">
+                <span className="text-[10px] font-bold text-black/80 uppercase tracking-wider mt-1">
                   {t("heroStatClients")}
                 </span>
               </div>
               <div className="flex flex-col sticker-tilt-slight-left">
                 <CountUp target={1} suffix="+" />
-                <span className="text-[10px] font-semibold text-black/60 uppercase tracking-wider mt-1">
+                <span className="text-[10px] font-bold text-black/80 uppercase tracking-wider mt-1">
                   {t("heroStatExp")}
                 </span>
               </div>
@@ -223,7 +223,7 @@ export default function Hero() {
             animate={{ opacity: 1, rotate: 0, scale: 1 }}
             whileInView={{ opacity: 1, rotate: [0, 2], scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" as const }}
+            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" as const }}
             className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center max-w-sm lg:max-w-none mx-auto w-full px-2 sm:px-0 pb-8"
           >
             {/* Photo card — responsive tilted, tap to toggle full color on mobile */}
@@ -234,15 +234,15 @@ export default function Hero() {
               <div className="relative aspect-[3/4] w-full border-[4px] border-black overflow-hidden bg-black">
                 <Image
                   src="/me.png"
-                  alt="Foto portrait"
+                  alt="Foto profil Ferdy Firmansyah - UI/UX Designer & Web Developer"
                   fill
                   className={`object-cover transition-all duration-500 ease-out group-hover:scale-105 ${
                     isPhotoColored
                       ? "grayscale-0 contrast-100 scale-105"
                       : "grayscale contrast-125 group-hover:grayscale-0 group-hover:contrast-100"
                   }`}
-                  sizes="(max-width: 768px) 80vw, 40vw"
-                  preload
+                  sizes="(max-width: 640px) 290px, (max-width: 1024px) 380px, 420px"
+                  priority
                 />
               </div>
 

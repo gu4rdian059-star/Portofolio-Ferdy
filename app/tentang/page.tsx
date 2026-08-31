@@ -116,19 +116,19 @@ export default function TentangPage() {
                 <div className="grid grid-cols-3 gap-3 max-w-md">
                   <div className="bg-black/80 border-[2px] border-white p-3 text-center">
                     <span className="font-display text-2xl font-black text-ngreen block">15+</span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-white/70">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-white/85">
                       {lang === "id" ? "Proyek Rilis" : "Projects Done"}
                     </span>
                   </div>
                   <div className="bg-black/80 border-[2px] border-white p-3 text-center">
                     <span className="font-display text-2xl font-black text-pink block">100%</span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-white/70">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-white/85">
                       {lang === "id" ? "Responsif" : "Responsive"}
                     </span>
                   </div>
                   <div className="bg-black/80 border-[2px] border-white p-3 text-center">
                     <span className="font-display text-2xl font-black text-ngreen block">99%</span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-white/70">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-white/85">
                       {lang === "id" ? "Kepuasan" : "Satisfaction"}
                     </span>
                   </div>
@@ -162,7 +162,7 @@ export default function TentangPage() {
                   </div>
 
                   {/* Floating Badge */}
-                  <div className="absolute -bottom-4 left-1 sm:-bottom-4 sm:-left-4 bg-pink text-white text-[11px] font-black uppercase px-3 py-1.5 border-[2px] border-black shadow-[3px_3px_0px_#000] -rotate-6 z-20">
+                  <div className="absolute -bottom-4 left-1 sm:-bottom-4 sm:-left-4 bg-pink text-black text-[11px] font-black uppercase px-3 py-1.5 border-[2px] border-black shadow-[3px_3px_0px_#000] -rotate-6 z-20">
                     ⚡ Pasuruan, ID
                   </div>
                 </div>
@@ -320,12 +320,12 @@ export default function TentangPage() {
                     />
                   </div>
                   <div>
-                    <h4 className="font-display text-base font-black text-pink">Rekayasa Perangkat Lunak (RPL)</h4>
-                    <p className="text-white/60 text-xs font-medium">Software Engineering Specialization</p>
+                    <h3 className="font-display text-base font-black text-pink">Rekayasa Perangkat Lunak (RPL)</h3>
+                    <p className="text-white/80 text-xs font-medium">Software Engineering Specialization</p>
                   </div>
                 </div>
 
-                <p className="text-white/85 text-xs sm:text-sm leading-relaxed font-medium bg-[#141414] p-4 border border-[#333]">
+                <p className="text-white/90 text-xs sm:text-sm leading-relaxed font-medium bg-[#141414] p-4 border border-[#333]">
                   {lang === "id"
                     ? "Pendidikan vokasi yang menekankan pada praktik langsung pemrograman web modern, struktur data, arsitektur perangkat lunak, dan standar desain industri."
                     : "Vocational education emphasizing hands-on practice in modern web programming, data structures, software architecture, and industry design standards."}

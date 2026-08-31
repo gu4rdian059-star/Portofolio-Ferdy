@@ -108,7 +108,7 @@ export default function KaryaPage() {
                   <span className="bg-ngreen text-black text-xs font-black uppercase px-3 py-1 border-[2px] border-black tracking-widest sticker-tilt-slight-left">
                     {t("karyaBannerBadge")}
                   </span>
-                  <span className="bg-pink text-white text-xs font-bold uppercase px-3 py-1 border-[2px] border-black tracking-wider">
+                  <span className="bg-pink text-black text-xs font-black uppercase px-3 py-1 border-[2px] border-black tracking-wider">
                     {projects.length} {t("karyaBannerCount")}
                   </span>
                 </div>
@@ -152,16 +152,19 @@ export default function KaryaPage() {
             {/* Search Bar */}
             <div className="relative min-w-[240px]">
               <input
+                id="search-project"
                 type="text"
+                aria-label={t("karyaSearchPlaceholder") || "Cari proyek"}
                 placeholder={t("karyaSearchPlaceholder")}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-white text-black placeholder:text-black/40 text-sm font-bold px-4 py-2.5 border-[3px] border-black shadow-[3px_3px_0px_#000] focus:outline-none focus:bg-white"
+                className="w-full bg-white text-black placeholder:text-black/60 text-sm font-bold px-4 py-2.5 border-[3px] border-black shadow-[3px_3px_0px_#000] focus:outline-none focus:bg-white"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 font-black text-black/50 hover:text-black"
+                  aria-label={lang === "id" ? "Hapus pencarian" : "Clear search"}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 font-black text-black/75 hover:text-black"
                 >
                   ✕
                 </button>

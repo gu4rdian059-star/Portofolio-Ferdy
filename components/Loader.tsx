@@ -17,8 +17,8 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
 
   useEffect(() => {
     let start = 0;
-    const duration = 1600; // 1.6s loading time
-    const intervalTime = 20; // tick every 20ms
+    const duration = 400; // Optimized loading duration (0.4s) to ensure blazing-fast FCP & LCP
+    const intervalTime = 16;
     const step = 100 / (duration / intervalTime);
 
     const timer = setInterval(() => {
@@ -28,7 +28,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
         clearInterval(timer);
         setTimeout(() => {
           onComplete();
-        }, 300); // Small pause before exit
+        }, 150); // Snappy exit pause
       } else {
         const currentProgress = Math.floor(start);
         setProgress(currentProgress);
@@ -50,7 +50,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
     <motion.div
       initial={{ y: 0 }}
       exit={{ y: "-100%" }}
-      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+      transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
       className="fixed inset-0 z-[9999] bg-black text-white flex flex-col justify-between p-6 md:p-10 select-none font-sans"
     >
       {/* Top Bar */}
@@ -58,7 +58,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
         <span className="font-display text-xl md:text-2xl font-black tracking-tight text-white">
           FERDY<span className="text-ngreen">.</span>
         </span>
-        <span className="text-xs font-semibold tracking-widest text-white/50 uppercase">
+        <span className="text-xs font-semibold tracking-widest text-white/80 uppercase">
           PORTOFOLIO
         </span>
       </div>
@@ -76,22 +76,22 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
 
         {/* Word Display */}
         <div className="h-10 md:h-14 overflow-hidden mb-2 text-center">
-          <motion.h2
+          <motion.p
             key={currentWord}
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -40, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             className="text-2xl md:text-4xl font-black tracking-widest text-pink uppercase"
           >
             {currentWord}
-          </motion.h2>
+          </motion.p>
         </div>
 
         {/* Heavy brutal progress percentage */}
-        <h1 className="font-display text-8xl sm:text-9xl md:text-[140px] font-black leading-none tracking-tighter text-white mb-8">
+        <p className="font-display text-8xl sm:text-9xl md:text-[140px] font-black leading-none tracking-tighter text-white mb-8">
           {progress.toString().padStart(3, "0")}
-        </h1>
+        </p>
 
         {/* Neo-brutal progress bar container */}
         <div className="w-full h-8 bg-[#222] border-[3px] border-white shadow-[4px_4px_0px_#fff] p-1 flex items-center">

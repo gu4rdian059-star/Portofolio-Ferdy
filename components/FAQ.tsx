@@ -54,7 +54,7 @@ export default function FAQ() {
           transition={{ type: "spring", stiffness: 100, damping: 15 }}
           className="mb-14 text-center max-w-2xl mx-auto"
         >
-          <span className="inline-block bg-pink text-white text-xs font-black uppercase px-3.5 py-1.5 border-[2px] border-black tracking-widest mb-3 sticker-tilt-slight-left">
+          <span className="inline-block bg-pink text-black text-xs font-black uppercase px-3.5 py-1.5 border-[2px] border-black tracking-widest mb-3 sticker-tilt-slight-left">
             {lang === "id" ? "✦ Pertanyaan Umum" : "✦ FAQ Section"}
           </span>
           <h2 className="font-display text-4xl sm:text-5xl font-black text-black">
@@ -75,7 +75,10 @@ export default function FAQ() {
                 className="bg-white dark:bg-[#181818] border-[3px] border-black dark:border-white shadow-[4px_4px_0px_#000] dark:shadow-[4px_4px_0px_#ccff00] overflow-hidden"
               >
                 <button
+                  id={`faq-btn-${faq.id}`}
                   onClick={() => toggleAccordion(faq.id)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${faq.id}`}
                   className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-display font-black text-lg sm:text-xl text-[#0a0a0a] dark:text-white hover:bg-[#fbf9f4] dark:hover:bg-[#222] transition-colors"
                 >
                   <span className="flex items-center gap-3">
@@ -84,7 +87,10 @@ export default function FAQ() {
                       {lang === "id" ? faq.q_id : faq.q_en}
                     </span>
                   </span>
-                  <span className="w-8 h-8 rounded-none bg-black text-ngreen flex items-center justify-center font-mono font-black text-lg shrink-0 border border-black shadow-[2px_2px_0px_#000]">
+                  <span 
+                    aria-hidden="true"
+                    className="w-8 h-8 rounded-none bg-black text-ngreen flex items-center justify-center font-mono font-black text-lg shrink-0 border border-black shadow-[2px_2px_0px_#000]"
+                  >
                     {isOpen ? "−" : "+"}
                   </span>
                 </button>
@@ -92,6 +98,9 @@ export default function FAQ() {
                 <AnimatePresence>
                   {isOpen && (
                     <motion.div
+                      id={`faq-answer-${faq.id}`}
+                      role="region"
+                      aria-labelledby={`faq-btn-${faq.id}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

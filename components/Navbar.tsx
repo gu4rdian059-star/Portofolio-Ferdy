@@ -59,6 +59,7 @@ export default function Navbar() {
             {/* Language Toggle Button — Fixed width to prevent layout shifts */}
             <button
               onClick={toggleLang}
+              aria-label={lang === "id" ? "Ganti ke Bahasa Inggris" : "Switch to Indonesian"}
               className="w-[78px] shrink-0 justify-center bg-white text-black font-black text-xs py-2 border-[2px] border-black shadow-[2px_2px_0px_#000] hover:bg-ngreen transition-colors uppercase tracking-wider flex items-center gap-1 whitespace-nowrap cursor-pointer"
               title="Change Language"
             >
@@ -68,6 +69,7 @@ export default function Navbar() {
             {/* Theme Toggle Button — Fixed width to prevent layout shifts */}
             <button
               onClick={toggleTheme}
+              aria-label={theme === "light" ? "Ganti ke mode gelap" : "Ganti ke mode terang"}
               className="w-[96px] shrink-0 justify-center bg-white text-black dark:bg-black dark:text-ngreen font-black text-xs py-2 border-[2px] border-black dark:border-white shadow-[2px_2px_0px_#000] dark:shadow-[2px_2px_0px_#ff2d9b] hover:bg-purple hover:text-white transition-colors uppercase tracking-wider flex items-center gap-1 whitespace-nowrap cursor-pointer"
               title="Toggle Dark/Light Mode"
             >
@@ -87,32 +89,38 @@ export default function Navbar() {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={toggleLang}
-              className="bg-white text-black dark:bg-[#181818] dark:text-white font-black text-[11px] px-2 py-1 border border-black dark:border-white shadow-[2px_2px_0px_#000]"
+              aria-label={lang === "id" ? "Ganti ke Bahasa Inggris" : "Switch to Indonesian"}
+              className="bg-white text-black dark:bg-[#181818] dark:text-white font-black text-xs px-2.5 py-2 min-h-[44px] min-w-[44px] flex items-center justify-center border border-black dark:border-white shadow-[2px_2px_0px_#000]"
             >
               {lang.toUpperCase()}
             </button>
             <button
               onClick={toggleTheme}
-              className="bg-white text-black dark:bg-black dark:text-ngreen font-black text-[11px] px-2 py-1 border border-black dark:border-white shadow-[2px_2px_0px_#000]"
+              aria-label={theme === "light" ? "Ganti ke mode gelap" : "Ganti ke mode terang"}
+              className="bg-white text-black dark:bg-black dark:text-ngreen font-black text-xs px-2.5 py-2 min-h-[44px] min-w-[44px] flex items-center justify-center border border-black dark:border-white shadow-[2px_2px_0px_#000]"
             >
               {theme === "light" ? "🌙" : "☀️"}
             </button>
             <button
-              className="flex flex-col gap-1.5 p-2 ml-1"
+              className="flex flex-col justify-center items-center gap-1.5 p-2.5 min-h-[44px] min-w-[44px] ml-1"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
             >
               <span
-                className={`block w-6 h-[3px] bg-black dark:bg-white transition-transform duration-200 ${mobileOpen ? "rotate-45 translate-y-[9px]" : ""
-                  }`}
+                className={`block w-6 h-[3px] bg-black dark:bg-white transition-transform duration-200 ${
+                  mobileOpen ? "rotate-45 translate-y-[9px]" : ""
+                }`}
               />
               <span
-                className={`block w-6 h-[3px] bg-black dark:bg-white transition-opacity duration-200 ${mobileOpen ? "opacity-0" : ""
-                  }`}
+                className={`block w-6 h-[3px] bg-black dark:bg-white transition-opacity duration-200 ${
+                  mobileOpen ? "opacity-0" : ""
+                }`}
               />
               <span
-                className={`block w-6 h-[3px] bg-black dark:bg-white transition-transform duration-200 ${mobileOpen ? "-rotate-45 -translate-y-[9px]" : ""
-                  }`}
+                className={`block w-6 h-[3px] bg-black dark:bg-white transition-transform duration-200 ${
+                  mobileOpen ? "-rotate-45 -translate-y-[9px]" : ""
+                }`}
               />
             </button>
           </div>

@@ -77,7 +77,7 @@ export default function Work() {
           className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14"
         >
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/40 mb-3">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-black/75 mb-3">
               {t("workTag")}
             </p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-black">
@@ -115,6 +115,7 @@ export default function Work() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Lihat proyek ${lang === "id" ? project.name_id : project.name_en}`}
                 className="border-[3px] border-black shadow-brutal brutal-hover cursor-pointer flex flex-col h-full overflow-visible bg-white relative group"
               >
                 {/* Large project number — overflowing */}
@@ -169,7 +170,10 @@ export default function Work() {
                   </div>
 
                   {/* Arrow Link Button Bottom Right */}
-                  <div className="absolute bottom-5 right-5 lg:bottom-6 lg:right-6 bg-white border-[3px] border-black w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full shadow-[2px_2px_0px_#000] transition-transform duration-300 group-hover:scale-110 group-hover:bg-ngreen text-black text-xl lg:text-2xl font-black">
+                  <div 
+                    aria-hidden="true"
+                    className="absolute bottom-5 right-5 lg:bottom-6 lg:right-6 bg-white border-[3px] border-black w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center rounded-full shadow-[2px_2px_0px_#000] transition-transform duration-300 group-hover:scale-110 group-hover:bg-ngreen text-black text-xl lg:text-2xl font-black"
+                  >
                     ↗
                   </div>
                 </div>

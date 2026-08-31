@@ -18,13 +18,13 @@ export default function Education() {
           transition={{ type: "spring", stiffness: 100, damping: 15 }}
           className="mb-14"
         >
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-black/50 mb-3 dark-theme:text-white/60">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-black/75 mb-3 dark-theme:text-white/80">
             {t("eduBadge")}
           </p>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-black">
             {t("eduTitle")}<span className="text-purple">.</span>
           </h2>
-          <p className="text-black/70 text-base sm:text-lg mt-3 max-w-2xl font-medium">
+          <p className="text-black/80 text-base sm:text-lg mt-3 max-w-2xl font-medium">
             {t("eduSubtitle")}
           </p>
         </motion.div>
@@ -41,10 +41,10 @@ export default function Education() {
           >
             <div>
               <div className="flex items-center justify-between gap-4 mb-6">
-                <span className="bg-pink text-white text-xs font-black uppercase px-3 py-1 border-[2px] border-black tracking-widest sticker-tilt-slight-left">
+                <span className="bg-pink text-black text-xs font-black uppercase px-3 py-1 border-[2px] border-black tracking-widest sticker-tilt-slight-left">
                   Sekolah Kejuruan
                 </span>
-                <span className="text-xs font-bold uppercase tracking-wider text-black/50">
+                <span className="text-xs font-bold uppercase tracking-wider text-black/75">
                   Pasuruan, Jatim
                 </span>
               </div>
@@ -74,7 +74,7 @@ export default function Education() {
             </div>
 
             <div className="pt-4 border-t-2 border-black/10 flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-black/60">
+              <span className="text-xs font-bold uppercase tracking-wider text-black/80">
                 Pusat Keunggulan
               </span>
               <span className="text-xs font-black bg-ngreen text-black px-2.5 py-1 border border-black shadow-[2px_2px_0px_#000]">
@@ -96,7 +96,7 @@ export default function Education() {
                 <span className="bg-ngreen text-black text-xs font-black uppercase px-3 py-1 border-[2px] border-black tracking-widest sticker-tilt-slight-right">
                   Jurusan Keahlian
                 </span>
-                <span className="text-xs font-bold uppercase tracking-wider text-black/50">
+                <span className="text-xs font-bold uppercase tracking-wider text-black/75">
                   Software Engineering
                 </span>
               </div>
@@ -127,7 +127,7 @@ export default function Education() {
 
             {/* Core Skills Pills */}
             <div className="pt-4 border-t-2 border-black/10">
-              <span className="text-xs font-bold uppercase tracking-wider text-black/60 block mb-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-black/80 block mb-2">
                 {t("eduSkillsBadge")}:
               </span>
               <div className="flex flex-wrap gap-2">

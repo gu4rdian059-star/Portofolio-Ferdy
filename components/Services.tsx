@@ -12,7 +12,7 @@ const services = [
     desc_en:
       "Bold posters, magazine layouts, Instagram feeds, and striking visual assets that instantly stop audiences from scrolling.",
     bg: "#ff2d9b",
-    text: "white",
+    text: "#000000",
     span: "",
     tilt: "",
   },
@@ -36,7 +36,7 @@ const services = [
     desc_en:
       "Precision-crafted interactive wireframes & prototypes focused on user accessibility and intuitive conversion flows.",
     bg: "#ff6b00",
-    text: "white",
+    text: "#000000",
     span: "",
     tilt: "",
   },
@@ -141,7 +141,7 @@ export default function Services() {
           transition={{ type: "spring", stiffness: 100, damping: 15 }}
           className="mb-14"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/40 mb-3">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-black/75 mb-3">
             {t("servicesTag")}
           </p>
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-black">
@@ -184,7 +184,7 @@ export default function Services() {
                           ? "rgba(255,255,255,0.95)"
                           : service.text === "#ccff00"
                           ? "rgba(204,255,0,0.95)"
-                          : "rgba(0,0,0,0.9)",
+                          : "rgba(0,0,0,0.95)",
                     }}
                   >
                     {lang === "id" ? service.desc_id : service.desc_en}
@@ -207,7 +207,7 @@ export default function Services() {
             transition={{ type: "spring", stiffness: 100, damping: 15 }}
             className="mb-14"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/40 mb-3">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-black/75 mb-3">
               {lang === "id" ? "proses kreatif." : "creative process."}
             </p>
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black">
@@ -273,9 +273,9 @@ export default function Services() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {techStack.map((group, i) => (
               <div key={i} className="border-l-2 border-purple dark:border-ngreen/40 pl-4">
-                <h4 className="font-display text-sm font-bold uppercase tracking-wider text-purple dark:text-ngreen mb-3">
+                <h3 className="font-display text-sm font-bold uppercase tracking-wider text-purple dark:text-ngreen mb-3">
                   {group.category}
-                </h4>
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <span

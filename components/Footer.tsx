@@ -63,7 +63,7 @@ export default function Footer() {
           </Link>
 
           {/* Copyright */}
-          <p className="text-xs text-white/40 text-center font-medium">
+          <p className="text-xs text-white/80 text-center font-medium">
             {t("footerRights")}
           </p>
 

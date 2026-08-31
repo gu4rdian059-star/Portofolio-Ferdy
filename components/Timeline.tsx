@@ -22,7 +22,7 @@ const milestones = [
     desc_id: "Fokus mendalami Rekayasa Perangkat Lunak (Software Engineering), arsitektur database SQL, Next.js React framework, dan prinsip UI/UX modern.",
     desc_en: "Focusing on Software Engineering, SQL database architecture, Next.js React framework, and modern UI/UX design principles.",
     color: "#ff2d9b",
-    textColor: "#ffffff",
+    textColor: "#000000",
   },
   {
     year: "2023",
@@ -90,7 +90,7 @@ export default function Timeline() {
                   >
                     {m.year}
                   </span>
-                  <span className="text-xs font-bold uppercase tracking-wider text-black/50 dark:text-white/50">
+                  <span className="text-xs font-bold uppercase tracking-wider text-black/75 dark:text-white/75">
                     {m.category}
                   </span>
                 </div>

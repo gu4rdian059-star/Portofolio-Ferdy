@@ -106,7 +106,7 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <p className="text-white font-bold text-sm">{t.author}</p>
-                  <p className="text-white/50 text-xs font-medium">{lang === "id" ? t.role_id : t.role_en}</p>
+                  <p className="text-white/80 text-xs font-medium">{lang === "id" ? t.role_id : t.role_en}</p>
                 </div>
               </div>
             </motion.div>
