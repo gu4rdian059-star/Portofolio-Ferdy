@@ -39,6 +39,7 @@ export default function RootLayout({
           href="/me.webp"
           as="image"
           type="image/webp"
+          fetchPriority="high"
         />
       </head>
       <body className="min-h-screen">
