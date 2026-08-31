@@ -82,7 +82,7 @@ export default function Contact() {
               href="mailto:frdyfirmansyahh@gmail.com"
               className="flex items-center justify-center gap-3 bg-black text-ngreen font-bold text-base lg:text-lg px-8 py-5 border-[3px] border-black shadow-brutal brutal-hover uppercase tracking-wider sticker-tilt-slight-right hover:!rotate-0"
             >
-              <span className="text-xl">✉</span>
+              <span aria-hidden="true" className="text-xl">✉</span>
               {t("emailMe")}
             </a>
             <a
@@ -91,7 +91,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 bg-cream text-black font-bold text-base lg:text-lg px-8 py-5 border-[3px] border-black shadow-brutal brutal-hover uppercase tracking-wider sticker-tilt-slight-left hover:!rotate-0"
             >
-              <span className="text-xl">💬</span>
+              <span aria-hidden="true" className="text-xl">💬</span>
               {t("waMe")}
             </a>
           </motion.div>

@@ -199,10 +199,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     const savedTheme = localStorage.getItem("app_theme") as Theme;
     const savedLang = localStorage.getItem("app_lang") as Language;
     if (savedTheme === "dark" || savedTheme === "light") {
-      setTheme(savedTheme);
+      requestAnimationFrame(() => setTheme(savedTheme));
     }
     if (savedLang === "id" || savedLang === "en") {
-      setLangState(savedLang);
+      requestAnimationFrame(() => setLangState(savedLang));
     }
   }, []);
 

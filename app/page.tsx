@@ -1,20 +1,23 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
 import Loader from "@/components/Loader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
-import Services from "@/components/Services";
-import Work from "@/components/Work";
-import Education from "@/components/Education";
-import SkillMatrix from "@/components/SkillMatrix";
-import Timeline from "@/components/Timeline";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+
+// Dynamic imports for below-the-fold components to maximize mobile performance & eliminate TBT
+const Education = dynamic(() => import("@/components/Education"));
+const Services = dynamic(() => import("@/components/Services"));
+const SkillMatrix = dynamic(() => import("@/components/SkillMatrix"));
+const Work = dynamic(() => import("@/components/Work"));
+const Timeline = dynamic(() => import("@/components/Timeline"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
+const Contact = dynamic(() => import("@/components/Contact"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);

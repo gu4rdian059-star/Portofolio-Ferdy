@@ -32,7 +32,7 @@ export default function Marquee() {
             key={i}
             className="flex items-center gap-4 mx-8 text-base font-bold uppercase tracking-[0.2em]"
           >
-            <span className="text-ngreen text-lg sticker-tilt-right inline-block">✦</span>
+            <span aria-hidden="true" className="text-ngreen text-lg sticker-tilt-right inline-block">✦</span>
             <span className="text-white">{item}</span>
           </span>
         ))}
