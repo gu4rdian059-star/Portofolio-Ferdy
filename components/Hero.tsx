@@ -172,15 +172,11 @@ export default function Hero() {
             >
               <div className="relative aspect-[3/4] w-full border-[4px] border-black overflow-hidden bg-black">
                 <Image
-                  src="/me.webp"
+                  src={isPhotoColored ? "/me-color.webp" : "/me.webp"}
                   alt="Foto profil Ferdy Firmansyah - UI/UX Designer & Web Developer"
                   width={320}
                   height={427}
-                  className={`w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-105 ${
-                    isPhotoColored
-                      ? "grayscale-0 contrast-100 scale-105"
-                      : "grayscale contrast-125 group-hover:grayscale-0 group-hover:contrast-100"
-                  }`}
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   priority
                   unoptimized
                 />
