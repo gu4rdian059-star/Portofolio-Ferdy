@@ -33,8 +33,14 @@ export default function RootLayout({
       lang="id"
       className={`${spaceGrotesk.variable} ${playfairDisplay.variable} antialiased`}
     >
-      <head />
-
+      <head>
+        <link
+          rel="preload"
+          href="/me.webp"
+          as="image"
+          type="image/webp"
+        />
+      </head>
       <body className="min-h-screen">
         <AppProvider>{children}</AppProvider>
       </body>

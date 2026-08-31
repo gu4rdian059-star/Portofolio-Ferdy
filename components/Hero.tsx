@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useApp } from "@/context/AppContext";
-import { HERO_IMAGE_B64 } from "@/lib/hero-image";
 
 /* ===== COUNT-UP COMPONENT ===== */
 function CountUp({
@@ -72,7 +71,7 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           {/* LEFT COLUMN — 7 cols (wider, asymmetric) */}
-          <div className="order-2 lg:order-1 lg:col-span-7">
+          <div className="lg:col-span-7">
             {/* Availability Badge & School Badge Row — tilted stickers */}
             <div className="mb-8 flex flex-wrap gap-3 items-center">
               <span className="inline-block bg-pink text-black text-xs font-black px-4 py-2.5 border-[3px] border-black shadow-brutal uppercase tracking-wider sticker-tilt-left">
@@ -165,21 +164,19 @@ export default function Hero() {
           </div>
 
           {/* RIGHT COLUMN — 5 cols (narrower, asymmetric) */}
-          <div className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center max-w-sm lg:max-w-none mx-auto w-full px-2 sm:px-0 pb-8">
+          <div className="lg:col-span-5 relative flex justify-center max-w-sm lg:max-w-none mx-auto w-full px-2 sm:px-0 pb-8">
             {/* Photo card — responsive tilted, tap to toggle full color on mobile */}
             <div
               onClick={() => setIsPhotoColored(!isPhotoColored)}
               className="bg-purple border-[4px] border-black shadow-brutal sm:shadow-brutal-lg p-4 sm:p-5 lg:p-6 relative lg:translate-y-6 group cursor-pointer w-full max-w-[290px] sm:max-w-sm lg:max-w-none lg:rotate-3 select-none active:scale-95 transition-transform"
             >
               <div className="relative aspect-[3/4] w-full border-[4px] border-black overflow-hidden bg-black">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={isPhotoColored ? "/me-color.webp" : HERO_IMAGE_B64}
+                <Image
+                  src={isPhotoColored ? "/me-color.webp" : "/me.webp"}
                   alt="Foto profil Ferdy Firmansyah - UI/UX Designer & Web Developer"
                   width={320}
                   height={427}
-                  fetchPriority="high"
-                  decoding="sync"
+                  unoptimized
                   className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
               </div>
