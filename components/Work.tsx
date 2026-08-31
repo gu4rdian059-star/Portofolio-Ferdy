@@ -40,7 +40,7 @@ const projects = [
     desc_en: "Web platform for outdoor & camping gear rental and booking management.",
     number: "03",
     offset: false,
-    link: "#",
+    link: "https://github.com/gu4rdian059-star/Portofolio-Ferdy",
   },
   {
     img: "/work/work4.png",

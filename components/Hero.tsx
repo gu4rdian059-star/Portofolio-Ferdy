@@ -24,8 +24,9 @@ function CountUp({
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
           let start = 0;
-          const duration = 2000;
-          const increment = target / (duration / 16);
+          const duration = 1500;
+          const intervalMs = 40; // 40ms interval to minimize CPU thread blocking
+          const increment = target / (duration / intervalMs);
           const timer = setInterval(() => {
             start += increment;
             if (start >= target) {
@@ -34,7 +35,7 @@ function CountUp({
             } else {
               setCount(Math.floor(start));
             }
-          }, 16);
+          }, intervalMs);
         }
       },
       { threshold: 0.5 }
@@ -56,18 +57,18 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: { 
-      staggerChildren: 0.08,
-      delayChildren: 0.1 // Snappy reveal for immediate LCP paint
+      staggerChildren: 0.05,
+      delayChildren: 0 // Zero delay for instantaneous LCP
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 15 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const },
+    transition: { duration: 0.35, ease: "easeOut" as const },
   },
 };
 
@@ -76,12 +77,8 @@ export default function Hero() {
   const [isPhotoColored, setIsPhotoColored] = useState(false);
 
   return (
-    <motion.section
+    <section
       id="beranda"
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
-      transition={{ type: "spring", stiffness: 80, damping: 20, velocity: 2 }}
       className="relative pt-24 lg:pt-28 pb-20 lg:pb-32 bg-cream overflow-hidden min-h-screen flex items-center"
     >
       {/* Dot grid background */}
@@ -257,6 +254,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

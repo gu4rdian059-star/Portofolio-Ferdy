@@ -45,7 +45,7 @@ const projects = [
     desc_id: "Platform penyewaan perlengkapan petualangan outdoor lengkap dengan sistem pemesanan & kalender ketersediaan.",
     desc_en: "Outdoor adventure gear rental web platform complete with booking system & availability calendar.",
     number: "03",
-    link: "#",
+    link: "https://github.com/gu4rdian059-star/Portofolio-Ferdy",
     featured: false,
   },
   {

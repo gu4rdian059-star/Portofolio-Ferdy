@@ -115,7 +115,7 @@ export default function Education() {
                   <h3 className="font-display text-2xl lg:text-3xl font-black text-black mb-1">
                     {t("eduDeptName")}
                   </h3>
-                  <p className="text-xs font-bold text-pink uppercase tracking-wider mb-3">
+                  <p className="text-xs font-bold text-purple uppercase tracking-wider mb-3">
                     Pengembangan Perangkat Lunak & Gim
                   </p>
                   <p className="text-base text-black/90 leading-relaxed font-medium">

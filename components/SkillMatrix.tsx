@@ -376,7 +376,7 @@ export default function SkillMatrix() {
                   </div>
 
                   <div>
-                    <span className="text-xs font-bold text-pink uppercase tracking-wider block mb-2">
+                    <span className="text-xs font-bold text-purple dark:text-ngreen uppercase tracking-wider block mb-2">
                       {lang === "id" ? "Kemampuan Utama Dikuasai:" : "Key Mastered Capabilities:"}
                     </span>
                     <div className="flex flex-col gap-2">
