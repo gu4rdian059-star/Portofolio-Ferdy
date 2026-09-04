@@ -126,19 +126,6 @@ export default function Navbar() {
                   >
                     {link.label}
                   </motion.span>
-
-                  {/* Active Droplet Indicator Dot */}
-                  {isActive && (
-                    <motion.span
-                      layoutId="active-droplet-dot"
-                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-purple dark:bg-ngreen shadow-[0_0_8px_currentColor] z-20"
-                      transition={{
-                        type: "spring",
-                        stiffness: 450,
-                        damping: 30,
-                      }}
-                    />
-                  )}
                 </Link>
               );
             })}
@@ -242,9 +229,6 @@ export default function Navbar() {
                     }`}
                   >
                     <span>{link.label}</span>
-                    {isActive && (
-                      <span className="w-2 h-2 rounded-full bg-purple dark:bg-ngreen shadow-[0_0_8px_currentColor]" />
-                    )}
                   </Link>
                 );
               })}
