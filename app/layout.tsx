@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
+import FloatingActions from "@/components/FloatingActions";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -43,7 +44,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen">
-        <AppProvider>{children}</AppProvider>
+        <AppProvider>
+          {children}
+          <FloatingActions />
+        </AppProvider>
       </body>
     </html>
   );

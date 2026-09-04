@@ -18,11 +18,129 @@
   --shadow-brutal-lg: 8px 8px 0px #0a0a0a;
 }
 
-/* Neo-Brutalism: no border-radius anywhere (except avatar circles) */
-*:not(.avatar-circle),
-*:not(.avatar-circle)::before,
-*:not(.avatar-circle)::after {
+/* Neo-Brutalism: no border-radius anywhere (except avatar circles & liquid glass elements) */
+*:not(.avatar-circle):not(.liquid-glass):not(.liquid-glass *):not(.liquid-pill):not(.liquid-pill *):not(.liquid-glass-nav):not(.liquid-glass-nav *):not(.liquid-specular):not(.liquid-mouse-glow),
+*:not(.avatar-circle):not(.liquid-glass):not(.liquid-glass *):not(.liquid-pill):not(.liquid-pill *):not(.liquid-glass-nav):not(.liquid-glass-nav *):not(.liquid-specular):not(.liquid-mouse-glow)::before,
+*:not(.avatar-circle):not(.liquid-glass):not(.liquid-glass *):not(.liquid-pill):not(.liquid-pill *):not(.liquid-glass-nav):not(.liquid-glass-nav *):not(.liquid-specular):not(.liquid-mouse-glow)::after {
   border-radius: 0 !important;
+}
+
+/* ===== 60FPS IOS-GRADE LIQUID GLASS EFFECT SYSTEM ===== */
+.liquid-glass-nav {
+  position: relative;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px) saturate(190%) contrast(102%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%) contrast(102%);
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 9999px !important;
+  box-shadow: 
+    0 8px 32px -4px rgba(0, 0, 0, 0.08),
+    0 2px 6px 0 rgba(0, 0, 0, 0.04),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.05);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+html.dark .liquid-glass-nav {
+  background: rgba(18, 18, 18, 0.72);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px -4px rgba(0, 0, 0, 0.6),
+    0 0 20px -2px rgba(204, 255, 0, 0.15),
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.liquid-glass-pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px !important;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 246, 240, 0.7) 45%,
+    rgba(235, 225, 255, 0.85) 100%
+  );
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1.2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 8px 24px -2px rgba(123, 47, 190, 0.22),
+    0 3px 8px 0 rgba(0, 0, 0, 0.08),
+    inset 0 2px 3px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 3px 0 rgba(123, 47, 190, 0.18);
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+html.dark .liquid-glass-pill {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(204, 255, 0, 0.18) 45%,
+    rgba(255, 45, 155, 0.2) 100%
+  );
+  border: 1.2px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 
+    0 0 24px 3px rgba(204, 255, 0, 0.3),
+    0 6px 18px 0 rgba(0, 0, 0, 0.7),
+    inset 0 2px 2px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -2px 4px 0 rgba(255, 45, 155, 0.45);
+}
+
+.liquid-specular {
+  position: absolute;
+  top: 1.5px;
+  left: 8%;
+  right: 8%;
+  height: 48%;
+  border-radius: 9999px !important;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.3) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+}
+
+html.dark .liquid-specular {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.2) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.liquid-mouse-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px !important;
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 0, 0);
+  will-change: opacity, background;
+}
+
+@keyframes liquid-shimmer {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+  }
+  45%, 100% {
+    transform: translateX(200%) skewX(-20deg);
+  }
+}
+
+.animate-liquid-shimmer {
+  animation: liquid-shimmer 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
 body {

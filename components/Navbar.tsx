@@ -4,9 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useApp } from "@/context/AppContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [hoveredPath, setHoveredPath] = useState<string | null>(null);
+  const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [isHoveringNav, setIsHoveringNav] = useState(false);
+
   const pathname = usePathname();
   const { theme, toggleTheme, lang, toggleLang, t } = useApp();
 
@@ -21,29 +26,118 @@ export default function Navbar() {
   return (
     <nav
       id="navbar"
-      className="fixed top-0 left-0 right-0 z-50 bg-cream border-b-[3px] border-black transition-colors"
+      className="fixed top-0 left-0 right-0 z-50 bg-cream/90 dark:bg-[#121212]/90 backdrop-blur-md border-b-[3px] border-black dark:border-white transition-colors"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="font-display text-2xl font-black text-black tracking-tight flex items-center gap-1">
-            FERDY<span className="text-ngreen">.</span>
+          <Link
+            href="/"
+            className="font-display text-2xl font-black text-black dark:text-white tracking-tight flex items-center gap-1 group"
+          >
+            <span className="transition-transform duration-200 group-hover:-rotate-2 inline-block">
+              FERDY
+            </span>
+            <span className="text-ngreen inline-block animate-pulse">.</span>
           </Link>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-6">
+          {/* Desktop Links with Liquid Glass Floating Capsule */}
+          <div
+            onMouseMove={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              setMousePos({
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
+              });
+            }}
+            onMouseEnter={() => setIsHoveringNav(true)}
+            onMouseLeave={() => {
+              setIsHoveringNav(false);
+              setHoveredPath(null);
+            }}
+            className="hidden md:flex items-center gap-1 px-2.5 py-1.5 liquid-glass-nav relative"
+          >
+            {/* Dynamic Liquid Mouse Spotlight Glow */}
+            <div
+              className="liquid-mouse-glow"
+              style={{
+                opacity: isHoveringNav ? 1 : 0,
+                background:
+                  theme === "dark"
+                    ? `radial-gradient(130px circle at ${mousePos.x}px ${mousePos.y}px, rgba(204, 255, 0, 0.28), rgba(255, 45, 155, 0.15) 45%, transparent 80%)`
+                    : `radial-gradient(120px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 255, 255, 0.8), rgba(123, 47, 190, 0.15) 50%, transparent 80%)`,
+              }}
+            />
+
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
+              const isItemHovered = hoveredPath === link.href;
+              // If hovering over the nav bar, follow the hovered item; otherwise highlight the active page item
+              const showLiquidPill = isHoveringNav ? isItemHovered : isActive;
+
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-bold uppercase tracking-widest transition-colors relative py-1 ${isActive ? "text-purple font-black" : "text-black hover:text-purple"
-                    }`}
+                  onMouseEnter={() => setHoveredPath(link.href)}
+                  className="relative px-4 py-2 text-xs font-black uppercase tracking-widest transition-all duration-150 z-10 select-none flex items-center justify-center cursor-pointer"
                 >
-                  {link.label}
+                  {/* iOS Dynamic Island / VisionOS Fluid Liquid Glass Capsule */}
+                  {showLiquidPill && (
+                    <motion.div
+                      layoutId="liquid-glass-menu-pill"
+                      className="liquid-glass-pill"
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 33,
+                        mass: 0.55,
+                        restDelta: 0.0005,
+                      }}
+                    >
+                      {/* Top curved specular gloss reflection */}
+                      <div className="liquid-specular" />
+
+                      {/* Sweeping Liquid Light Shimmer */}
+                      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+                        <div className="w-[160%] h-full bg-gradient-to-r from-transparent via-white/50 dark:via-white/25 to-transparent animate-liquid-shimmer" />
+                      </div>
+
+                      {/* Internal fluid gradient tint */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-purple/15 dark:from-ngreen/25 to-transparent pointer-events-none" />
+                    </motion.div>
+                  )}
+
+                  {/* Nav Item Text with Smooth Micro-Lift */}
+                  <motion.span
+                    animate={{
+                      scale: isActive || isItemHovered ? 1.05 : 1,
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 30,
+                    }}
+                    className={`relative z-20 font-black transition-colors duration-150 ${
+                      isActive || isItemHovered
+                        ? "text-purple dark:text-ngreen"
+                        : "text-black/80 dark:text-white/80 hover:text-black dark:hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </motion.span>
+
+                  {/* Active Droplet Indicator Dot */}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-purple" />
+                    <motion.span
+                      layoutId="active-droplet-dot"
+                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-purple dark:bg-ngreen shadow-[0_0_8px_currentColor] z-20"
+                      transition={{
+                        type: "spring",
+                        stiffness: 450,
+                        damping: 30,
+                      }}
+                    />
                   )}
                 </Link>
               );
@@ -52,17 +146,17 @@ export default function Navbar() {
 
           {/* Right Controls: Theme Toggle, Language Toggle & CTA */}
           <div className="hidden md:flex items-center gap-3">
-            {/* Language Toggle Button — Fixed width to prevent layout shifts */}
+            {/* Language Toggle Button */}
             <button
               onClick={toggleLang}
               aria-label={lang === "id" ? "Ganti ke Bahasa Inggris" : "Switch to Indonesian"}
-              className="w-[78px] shrink-0 justify-center bg-white text-black font-black text-xs py-2 border-[2px] border-black shadow-[2px_2px_0px_#000] hover:bg-ngreen transition-colors uppercase tracking-wider flex items-center gap-1 whitespace-nowrap cursor-pointer"
+              className="w-[78px] shrink-0 justify-center bg-white text-black dark:bg-[#1a1a1a] dark:text-white font-black text-xs py-2 border-[2px] border-black dark:border-white shadow-[2px_2px_0px_#000] dark:shadow-[2px_2px_0px_#ccff00] hover:bg-ngreen hover:text-black transition-colors uppercase tracking-wider flex items-center gap-1 whitespace-nowrap cursor-pointer"
               title="Change Language"
             >
               <span>{lang === "id" ? "🇮🇩 ID" : "🇺🇸 EN"}</span>
             </button>
 
-            {/* Theme Toggle Button — Fixed width to prevent layout shifts */}
+            {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
               aria-label={theme === "light" ? "Ganti ke mode gelap" : "Ganti ke mode terang"}
@@ -72,7 +166,7 @@ export default function Navbar() {
               <span>{theme === "light" ? "🌙 DARK" : "☀️ LIGHT"}</span>
             </button>
 
-            {/* CTA Button — Fixed width to prevent layout shifts */}
+            {/* CTA Button */}
             <Link
               href="/kontak"
               className="w-[130px] shrink-0 justify-center text-center bg-white text-black dark:bg-black dark:text-ngreen font-black text-xs py-2.5 border-[3px] border-black dark:border-white shadow-[3px_3px_0px_#000] dark:shadow-[3px_3px_0px_#ccff00] brutal-hover uppercase tracking-wider whitespace-nowrap inline-flex items-center"
@@ -123,35 +217,48 @@ export default function Navbar() {
         </div>
       </div>
 
-      {mobileOpen && (
-        <div
-          className="md:hidden border-t-[3px] border-black bg-cream overflow-hidden"
-        >
-          <div className="flex flex-col px-6 py-4 gap-4">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`text-sm font-bold uppercase tracking-widest transition-colors ${isActive ? "text-purple font-black" : "text-black hover:text-purple"
+      {/* Mobile Dropdown with Glassmorphism */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="md:hidden border-t-[3px] border-black dark:border-white bg-cream/95 dark:bg-[#141414]/95 backdrop-blur-xl overflow-hidden shadow-2xl"
+          >
+            <div className="flex flex-col px-6 py-4 gap-3">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`text-sm font-black uppercase tracking-widest px-4 py-3 border transition-all liquid-glass flex items-center justify-between ${
+                      isActive
+                        ? "bg-white/80 dark:bg-white/10 border-purple dark:border-ngreen text-purple dark:text-ngreen shadow-[2px_2px_0px_#000] dark:shadow-[2px_2px_0px_#ccff00]"
+                        : "bg-white/40 dark:bg-white/5 border-black/20 dark:border-white/20 text-black dark:text-white hover:bg-white/80 dark:hover:bg-white/15"
                     }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-            <Link
-              href="/kontak"
-              onClick={() => setMobileOpen(false)}
-              className="inline-block bg-white text-black dark:bg-black dark:text-ngreen font-black text-sm px-6 py-2.5 border-[3px] border-black dark:border-white shadow-brutal text-center uppercase tracking-wider"
-            >
-              {t("navCTA")}
-            </Link>
-          </div>
-        </div>
-      )}
+                  >
+                    <span>{link.label}</span>
+                    {isActive && (
+                      <span className="w-2 h-2 rounded-full bg-purple dark:bg-ngreen shadow-[0_0_8px_currentColor]" />
+                    )}
+                  </Link>
+                );
+              })}
+              <Link
+                href="/kontak"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 inline-block bg-white text-black dark:bg-black dark:text-ngreen font-black text-sm px-6 py-3 border-[3px] border-black dark:border-white shadow-brutal text-center uppercase tracking-wider hover:bg-ngreen transition-colors"
+              >
+                {t("navCTA")}
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
