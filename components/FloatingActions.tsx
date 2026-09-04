@@ -47,7 +47,7 @@ export default function FloatingActions() {
           onClick={scrollToTop}
           aria-label={lang === "id" ? "Kembali ke bagian atas halaman" : "Scroll back to top"}
           title={lang === "id" ? "Kembali ke Atas" : "Back to Top"}
-          className="avatar-circle group relative w-12 h-12 sm:w-14 sm:h-14 bg-[#8b0000] hover:bg-[#a00000] text-white border-[3px] border-black shadow-[3px_3px_0px_#000] hover:shadow-[5px_5px_0px_#000] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#000] flex items-center justify-center transition-all cursor-pointer rounded-full"
+          className="avatar-circle group relative w-12 h-12 sm:w-14 sm:h-14 bg-purple hover:bg-pink text-white border-[3px] border-black dark:border-white shadow-[3px_3px_0px_#000] dark:shadow-[3px_3px_0px_#ccff00] hover:shadow-[5px_5px_0px_#000] dark:hover:shadow-[5px_5px_0px_#ff2d9b] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#000] flex items-center justify-center transition-all cursor-pointer rounded-full"
         >
           {/* Arrow Up Icon */}
           <svg
@@ -66,7 +66,7 @@ export default function FloatingActions() {
           </svg>
 
           {/* Hover Tooltip Label */}
-          <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-black text-white text-[11px] font-black uppercase px-2.5 py-1 border-[2px] border-black shadow-[2px_2px_0px_#ccff00] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none hidden sm:block">
+          <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-black text-white text-[11px] font-black uppercase px-2.5 py-1 border-[2px] border-black dark:border-white shadow-[2px_2px_0px_#ccff00] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none hidden sm:block">
             {lang === "id" ? "Ke Atas ↑" : "Top ↑"}
           </span>
         </button>
