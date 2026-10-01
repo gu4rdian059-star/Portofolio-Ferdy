@@ -72,7 +72,41 @@ export default function FloatingActions() {
         </button>
       </div>
 
-      {/* 2. WhatsApp Floating CTA Button */}
+      {/* 2. Download CV CTA Button */}
+      <div className="pointer-events-auto">
+        <a
+          href="/CV-Ferdy-Firmansyah.pdf"
+          download="CV Ferdy Firmansyah.pdf"
+          aria-label={lang === "id" ? "Download CV Ferdy Firmansyah" : "Download Ferdy Firmansyah's CV"}
+          title={lang === "id" ? "Download CV" : "Download CV"}
+          className="avatar-circle group relative w-12 h-12 sm:w-14 sm:h-14 bg-purple hover:bg-pink text-white border-[3px] border-black dark:border-white shadow-[3px_3px_0px_#000] dark:shadow-[3px_3px_0px_#ccff00] hover:shadow-[5px_5px_0px_#000] dark:hover:shadow-[5px_5px_0px_#ff2d9b] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#000] flex items-center justify-center transition-all cursor-pointer rounded-full"
+        >
+          {/* Download / Document Icon */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 group-hover:translate-y-0.5"
+            aria-hidden="true"
+          >
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="12" y1="18" x2="12" y2="12" />
+            <polyline points="9 15 12 18 15 15" />
+          </svg>
+
+          {/* Hover Tooltip Label */}
+          <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-black text-ngreen text-[11px] font-black uppercase px-2.5 py-1 border-[2px] border-black dark:border-white shadow-[2px_2px_0px_#ccff00] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none hidden sm:block">
+            {lang === "id" ? "Download CV 📄" : "Download CV 📄"}
+          </span>
+        </a>
+      </div>
+
+      {/* 3. WhatsApp Floating CTA Button */}
       <div className="pointer-events-auto">
         <a
           href={`https://wa.me/6285236132763?text=${whatsappMessage}`}
