@@ -3,6 +3,7 @@ import { Space_Grotesk, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
 import FloatingActions from "@/components/FloatingActions";
+import PageTransition from "@/components/PageTransition";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen">
         <AppProvider>
+          <PageTransition />
           {children}
           <FloatingActions />
         </AppProvider>
